@@ -9,9 +9,19 @@ public class FillDataBase {
 	private BufferedReader input;
 	private DataBaseHelper db;
 	
-	public static void main(String[] args) throws SQLException,ClassNotFoundException,EOFException,IOException{
+	public static void main(String[] args) {
 
-		new FillDataBase();
+		try {
+			new FillDataBase();
+		} catch (EOFException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		DataBaseHelper dbHelper = new DataBaseHelper();
 
