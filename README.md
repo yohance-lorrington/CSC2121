@@ -1,5 +1,5 @@
 # CSC2121
 DataBaseProject
 Things to Do
--Add second table with Moves list and Pokemon Type_
--Add image properties to database_ 
+-Add second table with Moves list and Pokemon Type__
+-Add image properties to database__
