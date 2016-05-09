@@ -17,106 +17,121 @@ public class DataBaseHelper{
 	//private final String P_IMAGE = "image";
 	//private final String 
 	private Statement state;
-	/**
+	
+	 /**
 	 *  Connects to the database and checks if there is a database already in existence.
 	 *  If not it will create a database with the parameters(ID,NAME,TYPE);
-	 *   
-	 *  @throws SQLException
-	 *  @throws ClassNotFoundException - if the class cannot be located
-	 */
-	public DataBaseHelper() throws SQLException,ClassNotFoundException{
-		openConnection();	
-		if(!doesDatabaseExists())createDatabase();
+	 **/
+	public DataBaseHelper(){
+		openConnection();
+		try {
+			if (!doesDatabaseExists()) createDatabase();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
 	}
+	
 	public boolean doesDatabaseExists()throws SQLException{
 		DatabaseMetaData dbm =connection.getMetaData();
 		ResultSet table = dbm.getTables(null, null, tablename, null);
 		return table.next();
 	}
-	/**
-	 * 
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 */
-	public void openConnection()throws ClassNotFoundException,SQLException{
-		Class.forName("org.hsqldb.jdbcDriver");
-		this.connection = DriverManager.getConnection(connectionString);
+
+	public void openConnection(){
+		try {
+			Class.forName("org.hsqldb.jdbcDriver");
+			this.connection = DriverManager.getConnection(connectionString);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
 	}
-	/**
-	 * 
-	 * @throws SQLException
-	 */
-	public void closeConnection()throws SQLException{
-		this.connection.close();
+
+	public void closeConnection(){
+		try {
+			this.connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	/**
-	 * 
-	 * @throws SQLException
-	 */
-	public void createDatabase()throws SQLException{
+
+	public void createDatabase(){
 		String sql = "CREATE TABLE "+tablename+"("+P_ID+" INTEGER, "+P_NAME+" VARCHAR(24), "+P_TYPE+" VARCHAR(24));";
-		state = connection.createStatement();
-		state.executeQuery(sql);
+		try {
+			state = connection.createStatement();
+			state.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	/**
-	 * 
-	 * @param some
-	 * @throws SQLException
-	 * @see Pokemon
-	 */
-	public void insertPokemon(Pokemon some)throws SQLException{
+
+	public void insertPokemon(Pokemon some){
 		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"');";
-		state = connection.createStatement();
-		state.executeQuery(sql);
-		
+		try {
+			state = connection.createStatement();
+			state.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	/**
-	 * 
-	 * @throws SQLException
-	 */
-	public void removeDatabase()throws SQLException{
+
+	public void removeDatabase(){
 		String sql = "DROP TABLE "+tablename;
-		state = connection.createStatement();
-		state.executeQuery(sql);
-		
+		try {
+			state = connection.createStatement();
+			state.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
 	}
 	/**
-	 * 
-	 * @param some
-	 * @throws SQLException
-	 * @see Pokemon
+
 	 */
-	public void deletePokemon(Pokemon some)throws SQLException{
+	public void deletePokemon(Pokemon some){
 		String sql = "DELETE FROM "+tablename+" WHERE "+P_ID+"="+some.getID()+";";
-		state = connection.createStatement();
-		state.executeQuery(sql);
+		try {
+			state = connection.createStatement();
+			state.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * 
-	 * @param id
-	 * @return 
-	 * @throws SQLException
+
 	 */
-	public Pokemon getPokemon(Integer id)throws SQLException{
+	public Pokemon getPokemon(Integer id){
 		String sql = "SELECT * FROM "+tablename+" WHERE "+P_ID+"='"+id+"';";
-		state = connection.createStatement();
-		ResultSet r = state.executeQuery(sql);
-	
-		r.next();
-		return new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE));
+		Pokemon selected = new Pokemon();
+		try {
+			state = connection.createStatement();
+			ResultSet r = state.executeQuery(sql);
+			if(r.next()) {
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE));	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return selected;
 	}
 	/**
 	 * 
-	 * @param name
-	 * @return
-	 * @throws SQLException
+
 	 */
-	public Pokemon getPokemon(String name)throws SQLException{
+	public Pokemon getPokemon(String name){
 		String sql = "SELECT * FROM "+tablename+" WHERE "+P_NAME+"='"+name+"';";
-		state = connection.createStatement();
-		ResultSet r = state.executeQuery(sql);
-		r.next();
-		return new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE));
+		Pokemon selected = new Pokemon();
+		try {
+			state = connection.createStatement();
+			ResultSet r = state.executeQuery(sql);
+			if(r.next()) {
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE));	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return selected;
 	}
 	/**
 	 * 
@@ -124,15 +139,20 @@ public class DataBaseHelper{
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<Pokemon> getPokemonByType(String typez)throws SQLException{
+	public ArrayList<Pokemon> getPokemonByType(String typez){
 		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 		String sql = "SELECT * FROM "+tablename+" WHERE "+P_TYPE+"='"+typez+"';";
-		state = connection.createStatement();
-		ResultSet r =state.executeQuery(sql);
+		try {
+			state = connection.createStatement();
+			ResultSet r =state.executeQuery(sql);
 	
-		while(r.next()){
-			pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+			while(r.next()){
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+
 		return pokemons;
 	}
 	/**
@@ -141,29 +161,35 @@ public class DataBaseHelper{
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<Pokemon> getPokemonByType(Pokemon.TYPES typez)throws SQLException{
+	public ArrayList<Pokemon> getPokemonByType(Pokemon.TYPES typez){
 		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 		String sql = "SELECT * FROM "+tablename+" WHERE "+P_TYPE+"='"+typez.toString()+"';";
-		state = connection.createStatement();
-		ResultSet r =state.executeQuery(sql);
-	
-		while(r.next()){
-			pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+		try {
+			state = connection.createStatement();
+			ResultSet r =state.executeQuery(sql);
+			while(r.next()){
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return pokemons;
 	}
 	/**
-	 * 
-	 * @return
-	 * @throws SQLException
+
 	 */
-	public ArrayList<Pokemon> gottaCatchEmAll()throws SQLException{
+	public ArrayList<Pokemon> gottaCatchEmAll(){
 		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 		String sql = "SELECT * FROM "+tablename+";";
-		state = connection.createStatement();
-		ResultSet r =state.executeQuery(sql);
-		while(r.next()){
-			pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+
+		try {
+			state = connection.createStatement();
+			ResultSet r =state.executeQuery(sql);
+			while(r.next()){
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return pokemons;
 	}

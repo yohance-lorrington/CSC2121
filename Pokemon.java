@@ -17,6 +17,11 @@ public class Pokemon {
 			this.name = namez;
 			this.type = typez;
 		}
+		
+		public Pokemon(){
+			name = "ERROR";
+			type = "NOT FATAL";
+		}
 		/**
 		 * 
 		 * @return the name of the pokemon or null if the 

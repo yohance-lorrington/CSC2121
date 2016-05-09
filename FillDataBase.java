@@ -10,11 +10,11 @@ public class FillDataBase {
 	private DataBaseHelper db;
 	
 	public static void main(String[] args) throws SQLException,ClassNotFoundException,EOFException,IOException{
-		// TODO Auto-generated method stub
 
 		new FillDataBase();
+		
 		DataBaseHelper dbHelper = new DataBaseHelper();
-			
+
 		Pokemon p = dbHelper.getPokemon("Caterpie");
 		System.out.println("JUST CATERPIE");
 		System.out.println(p);
