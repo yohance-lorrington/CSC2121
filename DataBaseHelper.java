@@ -125,7 +125,7 @@ public class DataBaseHelper{
 	 * @throws SQLException
 	 */
 	public ArrayList<Pokemon> getPokemonByType(String typez)throws SQLException{
-		ArrayList<Pokemon> pokemons = new ArrayList<>();
+		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 		String sql = "SELECT * FROM "+tablename+" WHERE "+P_TYPE+"='"+typez+"';";
 		state = connection.createStatement();
 		ResultSet r =state.executeQuery(sql);
@@ -142,7 +142,7 @@ public class DataBaseHelper{
 	 * @throws SQLException
 	 */
 	public ArrayList<Pokemon> getPokemonByType(Pokemon.TYPES typez)throws SQLException{
-		ArrayList<Pokemon> pokemons = new ArrayList<>();
+		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 		String sql = "SELECT * FROM "+tablename+" WHERE "+P_TYPE+"='"+typez.toString()+"';";
 		state = connection.createStatement();
 		ResultSet r =state.executeQuery(sql);
@@ -158,7 +158,7 @@ public class DataBaseHelper{
 	 * @throws SQLException
 	 */
 	public ArrayList<Pokemon> gottaCatchEmAll()throws SQLException{
-		ArrayList<Pokemon> pokemons = new ArrayList<>();
+		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 		String sql = "SELECT * FROM "+tablename+";";
 		state = connection.createStatement();
 		ResultSet r =state.executeQuery(sql);
