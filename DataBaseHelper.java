@@ -88,8 +88,8 @@ public class DataBaseHelper{
 	/**
 
 	 */
-	public void deletePokemon(Pokemon some){
-		String sql = "DELETE FROM "+tablename+" WHERE "+P_ID+"="+some.getID()+";";
+	public void deletePokemon(Integer id){
+		String sql = "DELETE FROM "+tablename+" WHERE "+P_ID+"="+id+";";
 		try {
 			state = connection.createStatement();
 			state.executeQuery(sql);

@@ -1,8 +1,9 @@
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 public class FillDataBase {
@@ -10,38 +11,54 @@ public class FillDataBase {
 	private DataBaseHelper db;
 	
 	public static void main(String[] args) {
-
-		try {
-			new FillDataBase();
-		} catch (EOFException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 		DataBaseHelper dbHelper = new DataBaseHelper();
-
-		Pokemon p = dbHelper.getPokemon("Caterpie");
-		System.out.println("JUST CATERPIE");
-		System.out.println(p);
-		ArrayList<Pokemon> p1 = dbHelper.getPokemonByType(Pokemon.TYPES.FIRE);
-		System.out.println("JUST FIRE TYPES");
-		for (Pokemon pokemon : p1) {
-			System.out.println(pokemon);
-		}
-		ArrayList<Pokemon> p2=dbHelper.gottaCatchEmAll();
-		System.out.println("ALL POKEMONS");
-		for(Pokemon pokemon:p2){
-			System.out.println(pokemon);
-		}
-		System.out.println("Pokemon # 83");
-		Pokemon p3 = dbHelper.getPokemon(83);
-		System.out.println(p3);
 		
+		Scanner userInput = new Scanner(System.in);
+		int i = 0;
+		while(i!=-1){
+			System.out.println("\nWhat Would You like to do?");
+			System.out.println("Enter numbeer corresponding to selection:\n "
+					+ "	1:Print All\n	2:Search by name\n	3:Search by ID\n"
+					+ "	4:Search by Type\n	5:Remove by ID\n	6: Fill DB\n"
+					+ "	7:Drop DB\n	-1:EXIT");
+			i = userInput.nextInt();
+			
+			switch (i) {
+				case 1: System.out.println("ALL POKEMONS");
+						for(Pokemon pokemon : dbHelper.gottaCatchEmAll()){
+							System.out.println(pokemon);
+						}
+						break;
+						
+				case 2: System.out.println("Please enter a Pokemon: ");
+						System.out.println(dbHelper.getPokemon(userInput.next()));
+						break;
+					
+				case 3: System.out.println("Please enter Pokemon ID: ");
+						System.out.println(dbHelper.getPokemon(userInput.nextInt()));
+						break;
+						
+				case 4: System.out.println("Please enter a Type: ");
+						for (Pokemon pokemon : dbHelper.getPokemonByType(userInput.next())) {
+							System.out.println(pokemon);
+						}
+						break;
+						
+				case 5: System.out.println("Please enter ID of Pokemon to remove: ");
+						dbHelper.deletePokemon(userInput.nextInt());
+						break;
+						
+				case 6: new FillDataBase();
+						break;
+						
+				case 7: System.out.println("Dropping DaBase!");
+						dbHelper.removeDatabase();
+						break;
+
+				}
+		}
+
 		dbHelper.closeConnection();
 		
 
@@ -53,10 +70,16 @@ public class FillDataBase {
 	 * @throws EOFException
 	 * @throws IOException
 	 */
-	public FillDataBase()throws ClassNotFoundException,SQLException,EOFException,IOException{
+	public FillDataBase(){
 		db = new DataBaseHelper();
 		openFile("src/pokemonlist.txt");
-		readRecords();
+		try {
+			readRecords();
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		closeFile();
 		
 	}
@@ -65,25 +88,35 @@ public class FillDataBase {
 	 * @param whatever
 	 * @throws IOException
 	 */
-	private void openFile(String whatever)throws IOException{
-			input = new BufferedReader(new FileReader( new File(whatever)));			
+	private void openFile(String whatever){
+			try {
+				input = new BufferedReader(new FileReader( new File(whatever)));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}			
 
 	}
 	/**
 	 * 
 	 * @throws IOException
 	 */
-	private void closeFile()throws IOException{
-			if(input != null)input.close();
-
+	private void closeFile(){
+			if(input != null){
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 	}
 	/**
 	 * 
+	 * @throws NumberFormatException 
 	 * @throws SQLException
 	 * @throws EOFException
 	 * @throws IOException
 	 */
-	private void readRecords()throws SQLException,EOFException,IOException{
+	private void readRecords() throws NumberFormatException, IOException{
 			if(db.gottaCatchEmAll().size()<1){
 				String something;
 				while((something = input.readLine()) != null){
