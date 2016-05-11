@@ -18,7 +18,7 @@ public class FillDataBase {
 		int i = 0;
 		while(i!=-1){
 			System.out.println("\nWhat Would You like to do?");
-			System.out.println("Enter numbeer corresponding to selection:\n "
+			System.out.println("Enter number corresponding to selection:\n "
 					+ "	1:Print All\n	2:Search by name\n	3:Search by ID\n"
 					+ "	4:Search by Type\n	5:Remove by ID\n	6: Fill DB\n"
 					+ "	7:Drop DB\n	-1:EXIT");
