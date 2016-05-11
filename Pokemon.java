@@ -21,6 +21,7 @@ public class Pokemon {
 		public Pokemon(){
 			name = "ERROR";
 			type = "NOT FATAL";
+			id = -1;
 		}
 		/**
 		 * 
