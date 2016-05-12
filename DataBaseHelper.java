@@ -152,11 +152,7 @@ public class DataBaseHelper{
 				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
 			}
 		} catch (SQLException e) {
-<<<<<<< HEAD
-			e.printStackTrace();//Bad connection null statement
-=======
 			System.out.println("No Such Pokemon Type!");
->>>>>>> origin/master
 		}
 
 		return pokemons;

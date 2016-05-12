@@ -25,14 +25,8 @@ public class Pokemon {
 		}
 		
 		public Pokemon(){
-<<<<<<< HEAD
-			name = "ERROR";
-			type = "NOT FATAL";
-			id = -1;
-=======
 			Name = "ERROR";
 			Type = "NOT FATAL";
->>>>>>> origin/master
 		}
 		/**
 		 * 
