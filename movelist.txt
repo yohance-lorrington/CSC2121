@@ -1,0 +1,87 @@
+Twineedle	Bug
+Pin Missile	Bug
+String Shot	Bug
+Leech Life	Bug
+Spider Web	Bug
+Fury Cutter	Bug
+Megahorn	Bug
+Bite*	Dark
+Thief	Dark
+Feint Attack	Dark
+Pursuit	Dark
+Crunch	Dark
+Dragon Rage	Dragon
+Outrage	Dragon
+Dragon Breath	Dragon
+Twister	Dragon
+Dragon Claw	Dragon
+Dragon Dance	Dragon
+Dragon Pulse	Dragon
+Thunder Punch	Electric
+Thunder Shock	Electric
+Thunderbolt	Electric
+Thunder Wave	Electric
+Thunder	Electric
+Zap Cannon	Electric
+Spark	Electric
+Sweet Kiss*	Fairy
+Charm*	Fairy
+Moonlight*	Fairy
+Disarming Voice	Fairy
+Draining Kiss	Fairy
+Karate Chop*	Fighting
+Double Kick	Fighting
+Jump Kick	Fighting
+Rolling Kick	Fighting
+Fire Punch	Fire
+Ember	Fire
+Flamethrower	Fire
+Fire Spin	Fire
+Gust*	Flying
+Wing Attack	Flying
+Fly	Flying
+Peck	Flying
+Night Shade	Ghost
+Confuse Ray	Ghost
+Lick	Ghost
+Nightmare	Ghost
+Vine Whip	Grass
+Absorb	Grass
+Mega Drain	Grass
+Leech Seed	Grass
+Sand Attack*	Ground
+Earthquake	Ground
+Fissure	Ground
+Dig	Ground
+Ice Punch	Ice
+Mist	Ice
+Ice Beam	Ice
+Blizzard	Ice
+Pound	Normal
+Double Slap	Normal
+Comet Punch	Normal
+Mega Punch	Normal
+Poison Sting	Poison
+Acid	Poison
+Poison Powder	Poison
+Toxic	Poison
+Psybeam	Psychic
+Confusion	Psychic
+Psychic	Psychic
+Hypnosis	Psychic
+Rock Throw	Rock
+Rock Slide	Rock
+Sandstorm	Rock
+Rollout	Rock
+Ancient Power	Rock
+Steel Wing	Rock
+Iron Tail	Steel
+Metal Claw	Steel
+Meteor Mash	Steel
+Metal Sound	Steel
+Water Gun	
+Hydro Pump	Water
+Surf	Water
+Bubble Beam	Water
+Withdraw	Water
+Waterfall	Water
