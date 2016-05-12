@@ -2,39 +2,45 @@
 
 public class Pokemon {
 	
-		private Integer id;
-		private String name;
-		private String type;
+		private Integer ID;
+		private String Name;
+		private String Type;
+		private String Abil;
+		private String Species;
 		private BufferedImage image;
 		/**
 		 * 
 		 * @param idz
 		 * @param namez
 		 * @param typez
+		 * @param abilz
+		 * @param speciez
 		 */
-		public Pokemon(Integer idz,String namez,String typez){
-			this.id = idz;
-			this.name = namez;
-			this.type = typez;
+		public Pokemon(Integer idz,String namez,String typez,String abilz, String speciez){
+			this.ID = idz;
+			this.Name = namez;
+			this.Type = typez;
+			this.Species = speciez;
+			this.Abil = abilz;
 		}
 		
 		public Pokemon(){
-			name = "ERROR";
-			type = "NOT FATAL";
+			Name = "ERROR";
+			Type = "NOT FATAL";
 		}
 		/**
 		 * 
 		 * @return the name of the pokemon or null if the 
 		 */
 		public String getName(){
-			return this.name;
+			return this.Name;
 		}
 		/**
 		 * 
 		 * @return the type of the pokemon or null if the 
 		 */
 		public String getType(){
-			return this.type;
+			return this.Type;
 		
 		}
 		/**
@@ -42,29 +48,58 @@ public class Pokemon {
 		 * @return the pokemon's pokedex number 
 		 */
 		public Integer getID(){
-			return this.id;
+			return this.ID;
 			
 		}
+		/**
+		 * 
+		 * @return the pokemon's species
+		 */
+		public String getSpecies(){
+			return this.Species;
+		}
+		/**
+		 * 
+		 * @return the pokemon's ability 
+		 */
+		public String getAbil(){
+			return this.Abil;
+		}
+		
 		/**
 		 * 
 		 * @param someName
 		 */
 		public void setName(String someName){
-			this.name = someName;
+			this.Name = someName;
 		}
 		/**
 		 * 
 		 * @param someType
 		 */
 		public void setType(String someType){
-			this.type = someType;
+			this.Type = someType;
 		}
 		/**
 		 * 
 		 * @param someId
 		 */
 		public void setId(Integer someId){
-			this.id = someId;
+			this.ID = someId;
+		}
+		/**
+		 * 
+		 * @param someSpecies
+		 */
+		public void getSpecies(String someSpecies){
+			this.Species = someSpecies;
+		}
+		/**
+		 * 
+		 * @param someAbil
+		 */
+		public void getAbil(String someAbil){
+			this.Abil = someAbil;
 		}
 		public void setImage(BufferedImage img){
 			this.image = img;
@@ -75,7 +110,7 @@ public class Pokemon {
 
 	
 		public String toString(){
-			String toreturn = id.toString()+"\t"+name+"\t"+type;
+			String toreturn = ID.toString()+"\t"+Name+"\t"+Type;
 			return toreturn;
 		}
 		
