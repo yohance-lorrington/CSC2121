@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 public class FillDataBase {
 	private BufferedReader input;
 	private DataBaseHelper db;
@@ -76,9 +77,9 @@ public class FillDataBase {
 		try {
 			readRecords();
 		} catch (NumberFormatException e) {
-			e.printStackTrace();
+			System.out.println("File Information Is In The Wrong Format!");
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("File Cannoe Be Found!");
 		}
 		closeFile();
 		
@@ -92,7 +93,7 @@ public class FillDataBase {
 			try {
 				input = new BufferedReader(new FileReader( new File(whatever)));
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				System.out.println("File Cannot Be Found!");
 			}			
 
 	}
@@ -105,7 +106,7 @@ public class FillDataBase {
 				try {
 					input.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					System.out.println("No Opened Files Found!");
 				}
 			}
 	}
@@ -126,7 +127,7 @@ public class FillDataBase {
 						String some = stuff[2].replace("'", " ");
 						stuff[2]= some;
 					}
-					db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2],stuff[3]));
+					db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2],stuff[3],stuff[4],stuff[5]));
 				}
 				db.closeConnection();
 			}

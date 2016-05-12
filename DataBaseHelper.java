@@ -10,9 +10,11 @@ public class DataBaseHelper{
 
 	private String connectionString ="jdbc:hsqldb:testdb,sa,";
 	private Connection connection; 
-	private final String P_ID ="id";
-	private final String P_NAME = "name";
-	private final String P_TYPE = "type";
+	private final String P_ID ="ID";
+	private final String P_NAME = "Name";
+	private final String P_TYPE = "Type";
+	private final String P_SPEC = "Species";
+	private final String P_ABIL = "Abilities";
 	private final String tablename = "TABLENAME";
 	//private final String P_IMAGE = "image";
 	//private final String 
@@ -27,7 +29,7 @@ public class DataBaseHelper{
 		try {
 			if (!doesDatabaseExists()) createDatabase();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("No Database Can Be Found!");
 		}	
 	}
 	
@@ -42,9 +44,9 @@ public class DataBaseHelper{
 			Class.forName("org.hsqldb.jdbcDriver");
 			this.connection = DriverManager.getConnection(connectionString);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Class Not Found!");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Connection Could Not Be Established!");
 		}	
 	}
 
@@ -52,22 +54,22 @@ public class DataBaseHelper{
 		try {
 			this.connection.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("No Connection Found!");
 		}
 	}
 
 	public void createDatabase(){
-		String sql = "CREATE TABLE "+tablename+"("+P_ID+" INTEGER, "+P_NAME+" VARCHAR(24), "+P_TYPE+" VARCHAR(24));";
+		String sql = "CREATE TABLE "+tablename+"("+P_ID+" INTEGER, "+P_NAME+" VARCHAR(24), "+P_TYPE+" VARCHAR(24), "+P_SPEC+" VARCHAR(24), "+P_ABIL+" VARCHAR(24));";
 		try {
 			state = connection.createStatement();
 			state.executeQuery(sql);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Database Already Exists!");
 		}
 	}
 
 	public void insertPokemon(Pokemon some){
-		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"');";
+		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"', '"+some.getSpecies()+"', '"+some.getAbil()+");";
 		try {
 			state = connection.createStatement();
 			state.executeQuery(sql);
@@ -82,7 +84,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			state.executeQuery(sql);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Database Does Not Exist!");
 		}		
 	}
 	/**
@@ -94,7 +96,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			state.executeQuery(sql);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Pokemon Is Not In Database!");
 		}
 	}
 	/**
@@ -108,10 +110,10 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r = state.executeQuery(sql);
 			if(r.next()) {
-				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE));	
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL));	
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Pokemon Does Not Exist!");
 		}
 		return selected;
 	}
@@ -126,10 +128,10 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r = state.executeQuery(sql);
 			if(r.next()) {
-				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE));	
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL));	
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Pokemon Does Not Exist!");
 		}
 		return selected;
 	}
@@ -147,10 +149,14 @@ public class DataBaseHelper{
 			ResultSet r =state.executeQuery(sql);
 	
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+<<<<<<< HEAD
+			e.printStackTrace();//Bad connection null statement
+=======
+			System.out.println("No Such Pokemon Type!");
+>>>>>>> origin/master
 		}
 
 		return pokemons;
@@ -168,7 +174,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r =state.executeQuery(sql);
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -186,7 +192,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r =state.executeQuery(sql);
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
