@@ -1,20 +1,33 @@
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 public class FillDataBase {
 	private BufferedReader input;
-	private DataBaseHelper db;
+	private final DataBaseHelper db;
 	public static final int FILLPOKEMONDATABASE =256;
 	public static final int FILLMOVEDATABASE = 128;
 
 	public static void main(String[] args) {
 	
-		DataBaseHelper dbHelper = new DataBaseHelper();
+		final DataBaseHelper dbHelper = new DataBaseHelper();
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Frame window = new Frame(dbHelper);
+					window.PokeFrame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		Scanner userInput = new Scanner(System.in);
 		int i = 0;
@@ -80,6 +93,7 @@ public class FillDataBase {
 
 			}
 		}
+		
 		userInput.close();
 		dbHelper.closeConnection();
 		
@@ -164,7 +178,7 @@ public class FillDataBase {
 							String some = stuff[2].replace("'", " ");
 							stuff[2]= some;
 						}
-						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2],stuff[3],stuff[4],stuff[5]));
+						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2].toLowerCase(),stuff[3],stuff[4],stuff[5]));
 						
 					}
 					db.closeConnection();

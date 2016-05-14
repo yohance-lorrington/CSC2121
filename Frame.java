@@ -17,7 +17,7 @@ import java.awt.Color;
 public class Frame {
 
 	
-	private JFrame PokeFrame;
+	JFrame PokeFrame;
 	int flag = 0;
 	
 	String listen;
@@ -25,6 +25,8 @@ public class Frame {
 	String toup;
 	
 	//Data Base inputs (maybe?)
+	DataBaseHelper dbHelper;
+	
 	String []names = {"voltorb", "magikarp","ditto"};
 	String []types = {"Lightning", "Water","Normal"};
 	String []abilities = {"Static", "Swift Swim","Imposter"};
@@ -36,25 +38,10 @@ public class Frame {
 	int PI = 151 ;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Frame window = new Frame();
-					window.PokeFrame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
-	public Frame() {
+	public Frame(DataBaseHelper DBH) {
+		dbHelper = DBH;
 		initialize();
 	}
 
@@ -137,12 +124,7 @@ public class Frame {
 		FillPokemonType.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillPokemonType.setBounds(552, 281, 211, 70);
 		PokeFrame.getContentPane().add(FillPokemonType);
-		
-		JLabel BackGround = new JLabel("");
-		BackGround.setIcon(new ImageIcon("PokePic.png"));
-		BackGround.setBounds(0, 0, 778, 584);
-		PokeFrame.getContentPane().add(BackGround);
-		
+
 	    final JTextField SearchField = new JTextField();
 		SearchField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		SearchField.setBounds(168, 159, 170, 29);
@@ -153,7 +135,20 @@ public class Frame {
 		 		input = listen.toLowerCase();
 		 		toup = input.toUpperCase();
 		 		System.out.println("input = "+listen);
-		 		 for(int i = 0; i<names.length;i++)
+		 		
+		 		Pokemon pokeFound = dbHelper.getPokemon(input);
+	 			FillName.setText(pokeFound.getName());
+	 		 	FillPokemonType.setText(pokeFound.getType());
+	 		 	FillAbilities.setText(pokeFound.getAbil());
+	 		 	FillSpecies.setText(pokeFound.getSpecies());
+		 		//lblInvalidPokemonTry.setText(null);
+	 		 	PI = pokeFound.getID();
+		 		scrollPane.getHorizontalScrollBar().setValue(((PI%25)-1)*160);
+		 		scrollPane.getVerticalScrollBar().setValue(((PI-1)/25)*200); 
+		 		PokeFrame.getContentPane().add(scrollPane);
+		 		
+		 		/**
+		 		for(int i = 0; i<names.length;i++)
 		 		 {
 		 		 if( input.equals(names[i])){
 		 			 FillName.setText(toup);
@@ -169,6 +164,8 @@ public class Frame {
 		 		      if(flag!=1) {lblInvalidPokemonTry.setText("<html>Invalid Pokemon, Try Again!\r\nex...(Ditto, Magikarp)\r\n<html>");}
 		 		 }
 		 		 
+		 		 **/
+		 		 
 		 		 System.out.println(flag);
 		 		 flag = 0;
 		 		 SearchField.setText(null);
@@ -176,6 +173,12 @@ public class Frame {
 		 });
 		 PokeFrame.getContentPane().add(SearchField);
 		 SearchField.setColumns(10);
+			
+		 JLabel BackGround = new JLabel("");
+		 BackGround.setIcon(new ImageIcon("PokePic.png"));
+		 BackGround.setBounds(0, 0, 778, 584);
+		 PokeFrame.getContentPane().add(BackGround);
+			
 
 	}
 }
