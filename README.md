@@ -1,5 +1,10 @@
 # CSC2121
 DataBaseProject
 Things to Do <br />
--Add second table with Moves list and Pokemon Type <br />
--Add image properties to database <br />
+-Move main Function into a driver class rather than fillDB <br />
+-Clean Up code <br />
+-Comment Code <br />
+-TXT file documentation <br />
+<br />
+Considerations<br />
+-Drop Down Menus <br/>
