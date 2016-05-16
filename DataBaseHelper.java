@@ -306,7 +306,7 @@ public class DataBaseHelper{
 		}
 		return movesList;
 	}
-	public ArrayList<Move> getAllMoves(){
+	public ArrayList<Move> getAllMoves() {
 		String sql = "SELECT * FROM "+movetable+";";
 		ArrayList<Move> movesList = new ArrayList<Move>();
 		try{
