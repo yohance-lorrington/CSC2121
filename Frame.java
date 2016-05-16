@@ -27,13 +27,6 @@ public class Frame {
 	//Data Base inputs (maybe?)
 	DataBaseHelper dbHelper;
 	
-	String []names = {"voltorb", "magikarp","ditto"};
-	String []types = {"Lightning", "Water","Normal"};
-	String []abilities = {"Static", "Swift Swim","Imposter"};
-	String []species = {"Ball", "Fish","Jello"};
-	int []x = {3840,480, 960};
-	int []y = {600,1000, 1000};
-	
 	//from this from 1 through 151 to see different pokemon
 	int PI = 151 ;
 
@@ -73,12 +66,12 @@ public class Frame {
 		lblInvalidPokemonTry.setBounds(83, 198, 273, 44);
 		PokeFrame.getContentPane().add(lblInvalidPokemonTry);
 		
-		final JLabel FillAbilities = new JLabel("<html>Keen Eye<html>");
+		final JLabel FillAbilities = new JLabel("<html><html>");
 		FillAbilities.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillAbilities.setBounds(552, 447, 115, 70);
 		PokeFrame.getContentPane().add(FillAbilities);
 		
-		final JLabel FillSpecies = new JLabel("<html>Tiny Bird Pokemon <html>");
+		final JLabel FillSpecies = new JLabel("<html><html>");
 		FillSpecies.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillSpecies.setBounds(552, 361, 170, 70);
 		PokeFrame.getContentPane().add(FillSpecies);
@@ -103,7 +96,7 @@ public class Frame {
 		Name.setBounds(490, 178, 115, 70);
 		PokeFrame.getContentPane().add(Name);
 		
-		final JLabel FillName = new JLabel("<html>Spearow<html>");
+		final JLabel FillName = new JLabel("<html><html>");
 		FillName.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillName.setBounds(586, 178, 115, 70);
 		PokeFrame.getContentPane().add(FillName);
@@ -120,7 +113,7 @@ public class Frame {
 		SearchBox.setBounds(38, 162, 159, 20);
 		PokeFrame.getContentPane().add(SearchBox);
 		
-		final JLabel FillPokemonType = new JLabel("<html>Normal/Fighting<html>");
+		final JLabel FillPokemonType = new JLabel("<html><html>");
 		FillPokemonType.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillPokemonType.setBounds(552, 281, 211, 70);
 		PokeFrame.getContentPane().add(FillPokemonType);
