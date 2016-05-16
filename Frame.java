@@ -143,7 +143,7 @@ public class Frame {
 	 		 	FillSpecies.setText(pokeFound.getSpecies());
 		 		//lblInvalidPokemonTry.setText(null);
 	 		 	PI = pokeFound.getID();
-		 		scrollPane.getHorizontalScrollBar().setValue(((PI%25)-1)*160);
+		 		scrollPane.getHorizontalScrollBar().setValue((((PI-1)%25))*160);
 		 		scrollPane.getVerticalScrollBar().setValue(((PI-1)/25)*200); 
 		 		PokeFrame.getContentPane().add(scrollPane);
 		 		
