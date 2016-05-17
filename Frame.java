@@ -13,22 +13,15 @@ import javax.swing.border.MatteBorder;
 import java.awt.Color;
 
 
-
 public class Frame {
 
-	
 	JFrame PokeFrame;
-	int flag = 0;
-	
 	String listen;
 	String input;
-	String toup;
-	
-	//Data Base inputs (maybe?)
+    int PI = 151 ;
 	DataBaseHelper dbHelper;
+
 	
-	//from this from 1 through 151 to see different pokemon
-	int PI = 151 ;
 
 	/**
 	 * Create the application.
@@ -56,8 +49,8 @@ public class Frame {
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setViewportBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		scrollPane.setViewportView(new JLabel(imageIcon)); 
-	    scrollPane.getVerticalScrollBar().setValue(1);
-	    scrollPane.getHorizontalScrollBar().setValue(0);
+	    	scrollPane.getVerticalScrollBar().setValue(0);
+		 scrollPane.getHorizontalScrollBar().setValue(0);
 		scrollPane.setBounds(109, 260, 159, 195);
 		PokeFrame.getContentPane().add(scrollPane);
 		
@@ -107,7 +100,6 @@ public class Frame {
 		Title.setBounds(606, 162, 69, 20);
 		PokeFrame.getContentPane().add(Title);
 		
-		
 		JLabel SearchBox = new JLabel("Search...");
 		SearchBox.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		SearchBox.setBounds(38, 162, 159, 20);
@@ -118,60 +110,40 @@ public class Frame {
 		FillPokemonType.setBounds(552, 281, 211, 70);
 		PokeFrame.getContentPane().add(FillPokemonType);
 
-	    final JTextField SearchField = new JTextField();
+	    	final JTextField SearchField = new JTextField();
 		SearchField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		SearchField.setBounds(168, 159, 170, 29);
 		SearchField.addActionListener(new ActionListener(){
-		   public void actionPerformed(ActionEvent e) {
-		 		
-		    	listen = SearchField.getText();
+		 
+			public void actionPerformed(ActionEvent e) {
+		 	    
+				listen = SearchField.getText();
 		 		input = listen.toLowerCase();
-		 		toup = input.toUpperCase();
-		 		System.out.println("input = "+listen);
-		 		
+				
 		 		Pokemon pokeFound = dbHelper.getPokemon(input);
-	 			FillName.setText(pokeFound.getName());
+	 			if(pokeFound.getName()=="ERROR"){SearchField.setText(null);lblInvalidPokemonTry.setText("<html>Invalid Pokemon, Try Again!\r\nex...(Ditto, Magikarp)\r\n<html>");}
+	 			
+	 			else{
+	 			FillName.setText(pokeFound.getName().toUpperCase());
 	 		 	FillPokemonType.setText(pokeFound.getType());
 	 		 	FillAbilities.setText(pokeFound.getAbil());
 	 		 	FillSpecies.setText(pokeFound.getSpecies());
-		 		//lblInvalidPokemonTry.setText(null);
+		 		lblInvalidPokemonTry.setText(null);
 	 		 	PI = pokeFound.getID();
-		 		scrollPane.getHorizontalScrollBar().setValue((((PI-1)%25))*160);
+		 		scrollPane.getHorizontalScrollBar().setValue((((PI-1)%25)*160));
 		 		scrollPane.getVerticalScrollBar().setValue(((PI-1)/25)*200); 
 		 		PokeFrame.getContentPane().add(scrollPane);
-		 		
-		 		/**
-		 		for(int i = 0; i<names.length;i++)
-		 		 {
-		 		 if( input.equals(names[i])){
-		 			 FillName.setText(toup);
-		 		 	 FillPokemonType.setText(types[i]);
-		 		 	 FillAbilities.setText(abilities[i]);
-		 		 	 FillSpecies.setText(species[i]);
-			 		 lblInvalidPokemonTry.setText(null);
-			 		 scrollPane.getHorizontalScrollBar().setValue(((PI%25)-1)*160);
-			 		 scrollPane.getVerticalScrollBar().setValue(((PI-1)/25)*200); 
-			 		 PokeFrame.getContentPane().add(scrollPane);
-		 		 flag++;
-		 		 		}	
-		 		      if(flag!=1) {lblInvalidPokemonTry.setText("<html>Invalid Pokemon, Try Again!\r\nex...(Ditto, Magikarp)\r\n<html>");}
-		 		 }
-		 		 
-		 		 **/
-		 		 
-		 		 System.out.println(flag);
-		 		 flag = 0;
-		 		 SearchField.setText(null);
+		 	    System.out.println(pokeFound.getName());
+		 		SearchField.setText(null);
+		 		}
 		 	}	
 		 });
+		
 		 PokeFrame.getContentPane().add(SearchField);
 		 SearchField.setColumns(10);
-			
 		 JLabel BackGround = new JLabel("");
 		 BackGround.setIcon(new ImageIcon("PokePic.png"));
 		 BackGround.setBounds(0, 0, 778, 584);
-		 PokeFrame.getContentPane().add(BackGround);
-			
-
+		 PokeFrame.getContentPane().add(BackGround); 
 	}
 }
