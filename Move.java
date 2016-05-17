@@ -21,9 +21,6 @@ public class Move {
 		this.typename = type;
 	}
 
-	// TODO: Should this really be setMovesList?
-	// considering that each of these objects
-	// is a single move, not a list of moves?
 	public void setMovesList(String move){
 		this.moveName = move;
 	}
