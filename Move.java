@@ -1,4 +1,3 @@
-
 public class Move {
 
 	private  String typename;
@@ -8,25 +7,35 @@ public class Move {
 		this.typename = "null";
 		this.moveName  ="none";
 	}
+
 	Move(String name){
 		this.typename = name;
 	}
+
 	Move(String type,String move){
 		this.typename = type;
 		this.moveName = move;
 	}
+
 	public void setTypeName(String type){
 		this.typename = type;
 	}
+
+	// TODO: Should this really be setMovesList?
+	// considering that each of these objects
+	// is a single move, not a list of moves?
 	public void setMovesList(String move){
 		this.moveName = move;
 	}
+
 	public String getTypeName(){
 		return this.typename;
 	}
+
 	public String getMove(){
 		return this.moveName;
 	}
+
 	public String toString(){
 		String toreturn = typename+"\t"+moveName;
 		return toreturn;
@@ -34,6 +43,8 @@ public class Move {
 	
 	
 	
+	// This is a list of the types that
+	// actually exist in th pokemon world.
 	public enum TYPES{
 		GRASS{
 			public String toString(){
@@ -111,4 +122,5 @@ public class Move {
 			}
 		}
 	}
+
 }

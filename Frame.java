@@ -28,21 +28,35 @@ public class Frame {
 	 */
 	public Frame(DataBaseHelper DBH) {
 		dbHelper = DBH;
-		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * The function is public so that the Frame can
+	 * be declared before it is initialized.
+	 * We need this because we run our GUI through the
+	 * EventQueue.inkokeLater() method. If we define
+	 * the frame inside of this function, then we
+	 * can't interact with it from our main method
+	 * in FillDataBase.
+	 * We want to be able to do so in order to be
+	 * able to close the GUI when the command line
+	 * part of the program exits.
 	 */
-	private void initialize() {
+	public void initialize() {
 		
 		PokeFrame = new JFrame();
+
+		// Keep window the size of the pokedex.
 		PokeFrame.setResizable(false);
 		PokeFrame.setTitle("Jetlir'sGUI");
 		PokeFrame.setBounds(100, 100, 780, 620);
 		PokeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		PokeFrame.getContentPane().setLayout(null);
 		
+		// Create and add scroll pane for pokemon animation gif.
+		// Allows us to shift positions in one large picture
+		// instead of having one picture per pokemon.
 		ImageIcon imageIcon = new ImageIcon(new ImageIcon("giphy.gif").getImage().getScaledInstance(4000, 4000, Image.SCALE_DEFAULT));
 		final JScrollPane scrollPane = new JScrollPane();	
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -110,9 +124,14 @@ public class Frame {
 		FillPokemonType.setBounds(552, 281, 211, 70);
 		PokeFrame.getContentPane().add(FillPokemonType);
 
-	    	final JTextField SearchField = new JTextField();
+		final JTextField SearchField = new JTextField();
 		SearchField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		SearchField.setBounds(168, 159, 170, 29);
+
+		// This is a listener. It will listen for events that
+		// are emmitted on the search field. When there is an
+		// event that's emmitted, the 'actionPerformed' function
+		// is executed.
 		SearchField.addActionListener(new ActionListener(){
 		 
 			public void actionPerformed(ActionEvent e) {
