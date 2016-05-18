@@ -18,7 +18,7 @@ public class Frame {
 	JFrame PokeFrame;
 	String listen;
 	String input;
-    	int PI = 151 ;
+    	int PI = 151;
 	DataBaseHelper dbHelper;
 
 	
@@ -143,7 +143,6 @@ public class Frame {
 	 			if(pokeFound.getName()=="ERROR"){
 	 			SearchField.setText(null);
 	 			lblInvalidPokemonTry.setText("<html>Invalid Pokemon, Try Again!\r\nex...(Ditto, Magikarp)\r\n<html>");}
-	 			
 	 			else{
 	 			FillName.setText(pokeFound.getName().toUpperCase());
 	 		 	FillPokemonType.setText(pokeFound.getType());
@@ -154,7 +153,7 @@ public class Frame {
 		 		scrollPane.getHorizontalScrollBar().setValue((((PI-1)%25)*160));
 		 		scrollPane.getVerticalScrollBar().setValue(((PI-1)/25)*200); 
 		 		PokeFrame.getContentPane().add(scrollPane);
-		 	    System.out.println(pokeFound.getName());
+		 	    	System.out.println(pokeFound.getName());
 		 		SearchField.setText(null);
 		 		}
 		 	}	
