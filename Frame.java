@@ -18,7 +18,7 @@ public class Frame {
 	JFrame PokeFrame;
 	String listen;
 	String input;
-    int PI = 151 ;
+    	int PI = 151 ;
 	DataBaseHelper dbHelper;
 
 	
@@ -140,7 +140,9 @@ public class Frame {
 		 		input = listen.toLowerCase();
 				
 		 		Pokemon pokeFound = dbHelper.getPokemon(input);
-	 			if(pokeFound.getName()=="ERROR"){SearchField.setText(null);lblInvalidPokemonTry.setText("<html>Invalid Pokemon, Try Again!\r\nex...(Ditto, Magikarp)\r\n<html>");}
+	 			if(pokeFound.getName()=="ERROR"){
+	 			SearchField.setText(null);
+	 			lblInvalidPokemonTry.setText("<html>Invalid Pokemon, Try Again!\r\nex...(Ditto, Magikarp)\r\n<html>");}
 	 			
 	 			else{
 	 			FillName.setText(pokeFound.getName().toUpperCase());
