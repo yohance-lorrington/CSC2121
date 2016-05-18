@@ -6,9 +6,8 @@ public class pokedexDriver {
 	public static void main(String[] args) {
 		
 		final DataBaseHelper dbHelper = new DataBaseHelper();
-		try {
-			final Frame window = new Frame(dbHelper);
-			
+		final Frame window = new Frame(dbHelper);
+		
 		// Invokes the GUI on a different thread. This way
 		// operations in each thread don't interfere with
 		// the other thread.
@@ -126,10 +125,6 @@ public class pokedexDriver {
 				new WindowEvent(window.PokeFrame, WindowEvent.WINDOW_CLOSING)
 		);
 		userInput.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		dbHelper.closeConnection();
 	}

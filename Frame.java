@@ -21,8 +21,6 @@ public class Frame {
     	int PI = 151;
 	DataBaseHelper dbHelper;
 
-	
-
 	/**
 	 * Create the application.
 	 */
@@ -140,6 +138,11 @@ public class Frame {
 		 		input = listen.toLowerCase();
 				
 		 		Pokemon pokeFound = dbHelper.getPokemon(input);
+
+				// If no pokemon by the name of 'input' is found
+				// then the pokeFound object retains it's default
+				// field values. The default field value for the
+				// name is "ERROR".
 	 			if(pokeFound.getName()=="ERROR"){
 	 			SearchField.setText(null);
 	 			lblInvalidPokemonTry.setText("<html>Invalid Pokemon, Try Again!\r\nex...(Ditto, Magikarp)\r\n<html>");}

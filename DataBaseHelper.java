@@ -35,7 +35,6 @@ public class DataBaseHelper{
 			e.printStackTrace();
 		}
 
-		
 	}
 	
 	public boolean doesPokemonDatabaseExists() throws SQLException{
@@ -80,7 +79,6 @@ public class DataBaseHelper{
 			
 		}
 	}
-
 
 	public void insertPokemon(Pokemon some){
 		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"', '"+some.getSpecies()+"', '"+some.getAbil()+"');";
@@ -168,6 +166,13 @@ public class DataBaseHelper{
 		try {
 			state = connection.createStatement();
 			ResultSet r = state.executeQuery(sql);
+			
+			// resultSet maintains cursor in a table of results.
+			// The cursor initially points before the first record
+			// of the table. So, if r.next() returns false, then
+			// the result set is empty. If it is true, then 
+			// the cursor moves to the first and only result
+			// that is returned.
 			if(r.next()) {
 				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL));	
 			}

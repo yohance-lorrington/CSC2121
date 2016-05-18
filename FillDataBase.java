@@ -9,17 +9,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.awt.event.WindowEvent;
 
-// TODO: Get the correct image to show up
-//	on start up.
-
 public class FillDataBase {
-
 
 	private BufferedReader input;
 	private final DataBaseHelper db;
 	public static final int FILLPOKEMONDATABASE =256;
 	public static final int FILLMOVEDATABASE = 128;
-
 	
 	
 	//////////////////////////////////////////////////
@@ -122,11 +117,9 @@ public class FillDataBase {
 						for(int i =0;i<stuff.length;++i){
 							if(stuff.length == 3){
 								db.insertTypeandMove(stuff[2], stuff[0]+" "+stuff[1]);
-								break;
 								
 							}else{
 								db.insertTypeandMove(stuff[1], stuff[0]);
-								break;
 							}
 						}
 						
@@ -138,4 +131,8 @@ public class FillDataBase {
 	}
 }
 
+	//////////////////////////////////////////////////
+	// }}}
+	//////////////////////////////////////////////////
+	
 	
