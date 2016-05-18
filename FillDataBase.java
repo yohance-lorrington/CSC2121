@@ -114,12 +114,12 @@ public class FillDataBase {
 				}
 				break;
 			case FILLMOVEDATABASE:
-				if(db.getAllMoves().size()<1){
+				//if(db.getAllMoves().size()<1){
 					String line;
 					while((line = input.readLine()) != null){
 						line=line.replaceAll("\\s+", " ");
 						String[] stuff =line.split(" ");
-						//TODO for(int i =0;i<stuff.length;++i){
+						for(int i =0;i<stuff.length;++i){
 							if(stuff.length == 3){
 								db.insertTypeandMove(stuff[2], stuff[0]+" "+stuff[1]);
 								break;
@@ -128,11 +128,11 @@ public class FillDataBase {
 								db.insertTypeandMove(stuff[1], stuff[0]);
 								break;
 							}
-						//TODO }
+						}
 						
 					}
 					//TODO db.closeConnection();
-				}
+				//}
 				break;
 		}
 	}
