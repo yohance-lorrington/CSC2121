@@ -41,7 +41,7 @@ public class Move {
 	
 	
 	// This is a list of the types that
-	// actually exist in th pokemon world.
+	// actually exist in the pokemon world.
 	public enum TYPES{
 		GRASS{
 			public String toString(){
