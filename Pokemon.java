@@ -4,7 +4,7 @@ public class Pokemon {
 	private Integer ID;
 	private String Name;
 	private String Type;
-	private String Abil;
+	private String Move;
 	private String Species;
 	/**
 	 * 
@@ -14,19 +14,19 @@ public class Pokemon {
 	 * @param abilz
 	 * @param speciez
 	 */
-	public Pokemon(Integer idz,String namez,String typez,String abilz, String speciez){
+	public Pokemon(Integer idz,String namez,String typez, String speciez){
 		this.ID = idz;
 		this.Name = namez;
 		this.Type = typez;
 		this.Species = speciez;
-		this.Abil = abilz;
+
 	}
 	
 	public Pokemon(){
 		Name = "ERROR";
 		Type = "NOT FATAL";
 		ID = -1;
-		Abil = "STILL NOT FATAL";
+		Move = "STILL NOT FATAL";
 		Species = "STILL NOT FATAL";
 	}
 	/**
@@ -59,14 +59,7 @@ public class Pokemon {
 	public String getSpecies(){
 		return this.Species;
 	}
-	/**
-	 * 
-	 * @return the pokemon's ability 
-	 */
-	public String getAbil(){
-		return this.Abil;
-	}
-	
+
 	/**
 	 * 
 	 * @param someName
@@ -99,13 +92,9 @@ public class Pokemon {
 	 * 
 	 * @param someAbil
 	 */
-	public void getAbil(String someAbil){
-		this.Abil = someAbil;
-	}
-
 
 	public String toString(){
-		String toreturn = ID.toString()+"\t"+Name+"\t"+Type+"\t"+Abil+"\t"+Species;
+		String toreturn = ID.toString()+"\t"+Name+"\t"+Type+"\t"+Species;
 		return toreturn;
 	}
 	

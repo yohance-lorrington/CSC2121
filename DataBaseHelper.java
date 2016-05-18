@@ -14,7 +14,6 @@ public class DataBaseHelper{
 	private final String P_NAME = "Name";
 	private final String P_TYPE = "Type";
 	private final String P_SPEC = "Species";
-	private final String P_ABIL = "Abilities";
 	private final String tablename = "PII";//keep table names caps
 	private final String movetable = "MII";
 	private final String M_ID = "typeID";
@@ -66,7 +65,7 @@ public class DataBaseHelper{
 	}
 
 	public void createDatabase(){
-		String sql = "CREATE TABLE "+tablename+"("+P_ID+" INTEGER, "+P_NAME+" VARCHAR(24), "+P_TYPE+" VARCHAR(24), "+P_SPEC+" VARCHAR(24), "+P_ABIL+" VARCHAR(24));"
+		String sql = "CREATE TABLE "+tablename+"("+P_ID+" INTEGER, "+P_NAME+" VARCHAR(24), "+P_TYPE+" VARCHAR(24), "+P_SPEC+" VARCHAR(24));"
 				+"CREATE TABLE "+movetable+"("+M_ID+" VARCHAR(24), "+M_ATTACK +" VARCHAR(24));";
 		
 		try {
@@ -83,7 +82,7 @@ public class DataBaseHelper{
 
 
 	public void insertPokemon(Pokemon some){
-		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"', '"+some.getSpecies()+"', '"+some.getAbil()+"');";
+		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"', '"+some.getSpecies()+"');";
 		try {
 			state = connection.createStatement();
 			state.executeQuery(sql);
@@ -169,7 +168,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r = state.executeQuery(sql);
 			if(r.next()) {
-				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL));	
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC));	
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made!");
@@ -187,7 +186,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r = state.executeQuery(sql);
 			if(r.next()) {
-				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL));	
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC));	
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made!");
@@ -209,7 +208,7 @@ public class DataBaseHelper{
 			ResultSet r =state.executeQuery(sql);
 	
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC)));
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made");
@@ -218,7 +217,27 @@ public class DataBaseHelper{
 
 		return pokemons;
 	}
-
+	/**
+	 * 
+	 * @param typez
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList<Pokemon> getPokemonByType(Move.TYPES typez){
+		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+		String sql = "SELECT * FROM "+tablename+" WHERE "+P_TYPE+"='"+typez.toString()+"';";
+		try {
+			state = connection.createStatement();
+			ResultSet r =state.executeQuery(sql);
+			while(r.next()){
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC)));
+			}
+		} catch (SQLException e) {
+			System.out.println("Connection Was Not Made");
+			e.printStackTrace();
+		}
+		return pokemons;
+	}
 	/**
 	 */
 	public ArrayList<Pokemon> gottaCatchEmAll(){
@@ -229,13 +248,28 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r =state.executeQuery(sql);
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC)));
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made");
 			e.printStackTrace();
 		}
 		return pokemons;
+	}
+	public Move getMov(String typez){
+		String sql = "SELECT * FROM "+movetable+" WHERE "+M_ID+"='"+typez+"';";
+		Move move = new Move();
+		
+		try {
+			state = connection.createStatement();
+			ResultSet r = state.executeQuery(sql);
+			if (r.next()){
+				move = new Move(r.getString(M_ID), r.getString(M_ATTACK));}
+			} catch (SQLException e) {
+				System.out.println("Type Not Found!");
+				e.printStackTrace();
+			}
+			return move;
 	}
 	
 	public ArrayList<Move> getMoves(Pokemon some){
@@ -270,7 +304,22 @@ public class DataBaseHelper{
 		}
 		return movesList;
 	}
-
+	public ArrayList<Move> getMoves(Move.TYPES typez){
+		String sql = "SELECT * FROM "+movetable+" WHERE "+M_ID+"='"+typez.toString()+"';";
+		ArrayList<Move> movesList = new ArrayList<Move>();
+		try{
+			state = connection.createStatement();
+			ResultSet r = state.executeQuery(sql);
+			while(r.next()){
+				movesList.add(new Move(r.getString(M_ID),r.getString(M_ATTACK)));
+			}
+			
+		}catch(SQLException e){
+			System.out.println("Connection Was Not Made");
+			e.printStackTrace();
+		}
+		return movesList;
+	}
 	public ArrayList<Move> getAllMoves() {
 		String sql = "SELECT * FROM "+movetable+";";
 		ArrayList<Move> movesList = new ArrayList<Move>();

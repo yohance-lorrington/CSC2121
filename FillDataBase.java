@@ -107,29 +107,32 @@ public class FillDataBase {
 							String some = stuff[2].replace("'", " ");
 							stuff[2]= some;
 						}
-						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2].toLowerCase(),stuff[3],stuff[4],stuff[5]));
+						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2].toLowerCase(),stuff[3],stuff[4]));
 						
 					}
-					db.closeConnection();
+					//TODO db.closeConnection();
 				}
 				break;
 			case FILLMOVEDATABASE:
+				//if(db.getAllMoves().size()<1){
 					String line;
 					while((line = input.readLine()) != null){
 						line=line.replaceAll("\\s+", " ");
 						String[] stuff =line.split(" ");
-						int i=0;
-						while(i<stuff.length){
+						for(int i =0;i<stuff.length;++i){
 							if(stuff.length == 3){
 								db.insertTypeandMove(stuff[2], stuff[0]+" "+stuff[1]);
+								break;
+								
 							}else{
 								db.insertTypeandMove(stuff[1], stuff[0]);
+								break;
 							}
-							++i;
 						}
 						
 					}
-					db.closeConnection();
+					//TODO db.closeConnection();
+				//}
 				break;
 		}
 	}
