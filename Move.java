@@ -1,8 +1,11 @@
+//Class created to streamline the DB data Acquisition process.
 public class Move {
-
+	
+	//Instantiate Class Variable
 	private  String typename;
 	private String moveName;
 	
+	//Constructors
 	Move(){
 		this.typename = "null";
 		this.moveName  ="none";
@@ -16,7 +19,12 @@ public class Move {
 		this.typename = type;
 		this.moveName = move;
 	}
-
+	
+	/**
+	 * Utility Functions
+	**/
+	
+	//Setter Methods
 	public void setTypeName(String type){
 		this.typename = type;
 	}
@@ -24,7 +32,8 @@ public class Move {
 	public void setMovesList(String move){
 		this.moveName = move;
 	}
-
+	
+	//Getter Methods
 	public String getTypeName(){
 		return this.typename;
 	}
@@ -32,92 +41,10 @@ public class Move {
 	public String getMove(){
 		return this.moveName;
 	}
-
+	
+	@Override
 	public String toString(){
-		String toreturn = typename+"\t"+moveName;
-		return toreturn;
-	}
-	
-	
-	
-	// This is a list of the types that
-	// actually exist in the pokemon world.
-	public enum TYPES{
-		GRASS{
-			public String toString(){
-				return "Grass";
-			}
-		},
-		FIRE{
-			public String toString(){
-				return "Fire";
-			}
-		},
-		WATER{
-			public String toString(){
-				return "Water";
-			}
-		},
-		BUG{
-			public String toString(){
-				return "Bug";
-			}
-		},
-		NORMAL{
-			public String toString(){
-				return "Normal";
-			}
-		},
-		POISON{
-			public String toString(){
-				return "Poison";
-			}
-		},
-		ELECTRIC{
-			public String toString(){
-				return "Electric";
-			}
-		},
-		GROUND{
-			public String toString(){
-				return "Ground";
-			}
-		},
-		FAIRY{
-			public String toString(){
-				return "Fairy";
-			}
-		},
-		FIGHTING{
-			public String toString(){
-				return "Fighting";
-			}
-		},
-		ROCK{
-			public String toString(){
-				return "Rock";
-			}
-		},
-		PSYCHIC{
-			public String toString(){
-				return "Psychic";
-			}
-		},
-		GHOST{
-			public String toString(){
-				return "Ghost";
-			}
-		},
-		ICE{
-			public String toString(){
-				return "Ice";
-			}
-		},
-		DRAGON{
-			public String toString(){
-				return "Dragon";
-			}
-		}
+		return typename+"\t"+moveName;
 	}
 
 }

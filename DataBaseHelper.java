@@ -218,27 +218,7 @@ public class DataBaseHelper{
 
 		return pokemons;
 	}
-	/**
-	 * 
-	 * @param typez
-	 * @return
-	 * @throws SQLException
-	 */
-	public ArrayList<Pokemon> getPokemonByType(Move.TYPES typez){
-		ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
-		String sql = "SELECT * FROM "+tablename+" WHERE "+P_TYPE+"='"+typez.toString()+"';";
-		try {
-			state = connection.createStatement();
-			ResultSet r =state.executeQuery(sql);
-			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
-			}
-		} catch (SQLException e) {
-			System.out.println("Connection Was Not Made");
-			e.printStackTrace();
-		}
-		return pokemons;
-	}
+
 	/**
 	 */
 	public ArrayList<Pokemon> gottaCatchEmAll(){
@@ -290,22 +270,7 @@ public class DataBaseHelper{
 		}
 		return movesList;
 	}
-	public ArrayList<Move> getMoves(Move.TYPES typez){
-		String sql = "SELECT * FROM "+movetable+" WHERE "+M_ID+"='"+typez.toString()+"';";
-		ArrayList<Move> movesList = new ArrayList<Move>();
-		try{
-			state = connection.createStatement();
-			ResultSet r = state.executeQuery(sql);
-			while(r.next()){
-				movesList.add(new Move(r.getString(M_ID),r.getString(M_ATTACK)));
-			}
-			
-		}catch(SQLException e){
-			System.out.println("Connection Was Not Made");
-			e.printStackTrace();
-		}
-		return movesList;
-	}
+
 	public ArrayList<Move> getAllMoves() {
 		String sql = "SELECT * FROM "+movetable+";";
 		ArrayList<Move> movesList = new ArrayList<Move>();

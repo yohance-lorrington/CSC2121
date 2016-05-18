@@ -110,7 +110,7 @@ public class FillDataBase {
 						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2].toLowerCase(),stuff[3],stuff[4],stuff[5]));
 						
 					}
-					//TODO db.closeConnection();
+					db.closeConnection();
 				}
 				break;
 			case FILLMOVEDATABASE:
@@ -122,7 +122,6 @@ public class FillDataBase {
 						while(i<stuff.length){
 							if(stuff.length == 3){
 								db.insertTypeandMove(stuff[2], stuff[0]+" "+stuff[1]);
-								
 							}else{
 								db.insertTypeandMove(stuff[1], stuff[0]);
 							}
@@ -130,7 +129,7 @@ public class FillDataBase {
 						}
 						
 					}
-					//TODO db.closeConnection();
+					db.closeConnection();
 				break;
 		}
 	}
