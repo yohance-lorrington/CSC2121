@@ -24,7 +24,7 @@ public class FillDataBase {
 	
 		final DataBaseHelper dbHelper = new DataBaseHelper();
 		try {
-			Frame window = new Frame(dbHelper);
+			final Frame window = new Frame(dbHelper);
 			
 		// Invokes the GUI on a different thread. This way
 		// operations in each thread don't interfere with
@@ -260,7 +260,4 @@ public class FillDataBase {
 	}
 }
 
-	//////////////////////////////////////////////////
-	// }}}
-	//////////////////////////////////////////////////
 	
