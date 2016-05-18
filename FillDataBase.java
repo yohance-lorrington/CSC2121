@@ -114,25 +114,23 @@ public class FillDataBase {
 				}
 				break;
 			case FILLMOVEDATABASE:
-				//if(db.getAllMoves().size()<1){
 					String line;
 					while((line = input.readLine()) != null){
 						line=line.replaceAll("\\s+", " ");
 						String[] stuff =line.split(" ");
-						for(int i =0;i<stuff.length;++i){
+						int i=0;
+						while(i<stuff.length){
 							if(stuff.length == 3){
 								db.insertTypeandMove(stuff[2], stuff[0]+" "+stuff[1]);
-								break;
 								
 							}else{
 								db.insertTypeandMove(stuff[1], stuff[0]);
-								break;
 							}
+							++i;
 						}
 						
 					}
 					//TODO db.closeConnection();
-				//}
 				break;
 		}
 	}
