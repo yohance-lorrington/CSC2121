@@ -212,7 +212,7 @@ public class Frame {
 	 		 	FillSpecies.setText(pokeFound.getSpecies());
 	 		 	
 	 		 	//Hide InvalidPokemon JLabel if the First case was triggered previously
-		 		lblInvalidPokemonTry.setText(null
+		 		lblInvalidPokemonTry.setText(null);
 		 		
 		 		// Int PI will take the Pokemon Index number of the pokemon found
 	 		 	PI = pokeFound.getID();
