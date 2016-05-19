@@ -120,7 +120,7 @@ public class Frame {
 		PokeFrame.getContentPane().add(SearchBox);
 		
 					/////////////////////////////
-					// ALWAYS CHANGING JLABERLS//
+					// ALWAYS CHANGING JLABELS//
 					/////////////////////////////
 		
 		//4 of the following Jlabels always change after a new pokemon is entered
@@ -149,7 +149,7 @@ public class Frame {
 		PokeFrame.getContentPane().add(FillPokemonType);
 		
 					/////////////////////////////
-					//  ERROR MESSEGE JLABERL  //
+					//  ERROR MESSEGE JLABEL  //
 					/////////////////////////////
 		
 		//JLabel This particular one  is hidden unless a wrong userinput is made
