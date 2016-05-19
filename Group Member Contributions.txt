@@ -9,6 +9,8 @@ Jetlir Lajqi:
 Gary Lin:
 
 Adam Ibrahim:
+Synchronized the closing of the GUI and the main threads.
+Debugging and error handling of the user input sections.
 
 Shixun Huang:
 
