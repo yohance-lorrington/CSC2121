@@ -4,7 +4,6 @@ public class Pokemon {
 	private Integer ID;
 	private String Name;
 	private String Type;
-	private String Move;
 	private String Species;
 	/**
 	 * 
@@ -26,7 +25,6 @@ public class Pokemon {
 		Name = "ERROR";
 		Type = "NOT FATAL";
 		ID = -1;
-		Move = "STILL NOT FATAL";
 		Species = "STILL NOT FATAL";
 	}
 	/**

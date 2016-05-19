@@ -1,13 +1,11 @@
 import java.sql.SQLException;
-import java.util.Scanner;
-import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.awt.event.WindowEvent;
+
 
 public class FillDataBase {
 
@@ -105,27 +103,27 @@ public class FillDataBase {
 						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2].toLowerCase(),stuff[3],stuff[4]));
 						
 					}
-					//TODO db.closeConnection();
+					db.closeConnection();
 				}
 				break;
 			case FILLMOVEDATABASE:
-				//if(db.getAllMoves().size()<1){
 					String line;
 					while((line = input.readLine()) != null){
 						line=line.replaceAll("\\s+", " ");
 						String[] stuff =line.split(" ");
-						for(int i =0;i<stuff.length;++i){
+						int i=0;
+						while(i<stuff.length){
 							if(stuff.length == 3){
 								db.insertTypeandMove(stuff[2], stuff[0]+" "+stuff[1]);
 								
 							}else{
 								db.insertTypeandMove(stuff[1], stuff[0]);
 							}
+							++i;
 						}
 						
 					}
-					//TODO db.closeConnection();
-				//}
+					db.closeConnection();
 				break;
 		}
 	}
