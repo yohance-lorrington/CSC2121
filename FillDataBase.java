@@ -102,7 +102,7 @@ public class FillDataBase {
 							String some = stuff[2].replace("'", " ");
 							stuff[2]= some;
 						}
-						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2].toLowerCase(),stuff[3],stuff[4],stuff[5]));
+						db.insertPokemon(new Pokemon(Integer.valueOf(stuff[1]),stuff[2].toLowerCase(),stuff[3],stuff[4]));
 						
 					}
 					//TODO db.closeConnection();

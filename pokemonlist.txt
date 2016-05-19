@@ -1,151 +1,151 @@
- 001	Bulbasaur	Grass	Overgrow	Chlorophyll
- 002	Ivysaur		Grass	Overgrow	Chlorophyll
- 003	Venusaur	Grass	Overgrow	Chlorophyll
- 004	Charmander	Fire	Blaze		SolarPower
- 005	Charmeleon	Fire	Blaze		SolarPower
- 006	Charizard	Fire	Blaze		SolarPower
- 007	Squirtle	Water	Torrent		RainDish
- 008	Wartortle	Water	Torrent		RainDish
- 009	Blastoise	Water	Torrent		RainDish
- 010	Caterpie	Bug		ShieldDust	RunAway
- 011	Metapod		Bug		ShedSkin	None
- 012	Butterfree	Bug		CompoundEyes TintedLens
- 013	Weedle		Bug		ShieldDust	RunAway
- 014	Kakuna		Bug		ShedSkin	None
- 015	Beedrill	Bug		Swarm		Sniper
- 016	Pidgey		Normal	KeenEye		BigPecks
- 017	Pidgeotto	Normal	KeenEye		BigPecks
- 018	Pidgeot		Normal	KeenEye		BigPecks
- 019	Rattata		Normal	RunAway		Hustle
- 020	Raticate	Normal	RunAway		Hustle
- 021	Spearow		Normal	KeenEye		Sniper
- 022	Fearow		Normal	KeenEye		Sniper
- 023	Ekans		Poison	Intimidate	Unnerve
- 024	Arbok		Poison	Intimidate	Unnerve
- 025	Pikachu		Electric Static		LightningRod
- 026	Raichu		Electric Static		LightningRod
- 027	Sandshrew	Ground	SandVeil	SandRush
- 028	Sandslash	Ground	SandVeil	SandRush
- 029	Nidoran♀	Poison	PoisonPoint	Hustle
- 030	Nidorina	Poison	PoisonPoint	Hustle
- 031	Nidoqueen	Poison	PoisonPoint	SheerForce
- 032	Nidoran♂	Poison	PoisonPoint	Hustle
- 033	Nidorino	Poison	PoisonPoint	Hustle
- 034	Nidoking	Poison	PoisonPoint	SheerForce
- 035	Clefairy	Fairy	CuteCharm	FriendGuard
- 036	Clefable	Fairy	CuteCharm	Unaware
- 037	Vulpix		Fire	FlashFire	Drought
- 038	Ninetales	Fire	FlashFire	Drought
- 039	Jigglypuff	Normal	CuteCharm	FriendGuard
- 040	Wigglytuff	Normal	CuteCharm	Frisk
- 041	Zubat		Poison	InnerForce	Infiltrator
- 042	Golbat		Poison	InnerForce	Infiltrator
- 043	Oddish		Grass	Chlorophyll	RunAway
- 044	Gloom		Grass	Chlorophyll	Stench
- 045	Vileplume	Grass	Chlorophyll	EffectSpore
- 046	Paras		Bug		EffectSpore Damp
- 047	Parasect	Bug		EffectSpore	Damp
- 048	Venonat		Bug		CompoundEyes RunAway
- 049	Venomoth	Bug		ShieldDust	WonderSkin
- 050	Diglett		Ground	SandVeil	SandForce
- 051	Dugtrio		Ground	SandVeil	SandForce
- 052	Meowth		Normal	Pickup		Unnerve
- 053	Persian		Normal	Limber		Unnerve
- 054	Psyduck		Water	Damp		SwiftSwim
- 055	Golduck		Water	Damp		SwiftSwim
- 056	Mankey		Fighting VitalSpirit Defiant
- 057	Primeape	Fighting VitalSpirit Defiant
- 058	Growlithe	Fire	Intimidate	Justified
- 059	Arcanine	Fire	Intimidate	Justified
- 060	Poliwag		Water	WaterAbsorb	SwiftSwim
- 061	Poliwhirl	Water	WaterAbsorb	SwiftSwim
- 062	Poliwrath	Water	WaterAbsorb	SwiftSwim
- 063	Abra		Psychic	Synchronize	MagicGuard
- 064	Kadabra		Psychic	Synchronize	MagicGuard
- 065	Alakazam	Psychic Synchronize	MagicGuard
- 066	Machop		Fighting Guts		Steadfast
- 067	Machoke		Fighting Guts		Steadfast
- 068	Machamp		Fighting Guts		Steadfast
- 069	Bellsprout	Grass	Chlorophyll	Gluttony
- 070	Weepinbell	Grass	Chlorophyll	Gluttony
- 071	Victreebel	Grass	Chlorophyll	Gluttony
- 072	Tentacool	Water	ClearBody	RainDish
- 073	Tentacruel	Water	ClearBody	RainDish
- 074	Geodude		Rock	RockHead	SandVeil
- 075	Graveler	Rock	RockHead	SandVeil
- 076	Golem		Rock	RockHead	SandVeil
- 077	Ponyta		Fire	RunAway		FlameBody
- 078	Rapidash	Fire	RunAway		FlameBody
- 079	Slowpoke	Water	Oblivious	Regenerator
- 080	Slowbro		Water	Oblivious	Regenerator
- 081	Magnemite	Electric MagnetPull	Analytic
- 082	Magneton	Electric MagnetPull	Analytic
- 083	Farfetch'd	Normal	KeenEye		Defiant
- 084	Doduo		Normal	RunAway		TangledFeet
- 085	Dodrio		Normal	RunAway		TangledFeet
- 086	Seel		Water	ThickFat	IceBody
- 087	Dewgong		Water	ThickFat	IceBody
- 088	Grimer		Poison	Stench		PoisonTouch
- 089	Muk			Poison	Stench		PoisonTouch
- 090	Shellder	Water	ShellArmor	Overcoat
- 091	Cloyster	Water	ShellArmor	Overcoat
- 092	Gastly		Ghost	Levitate	None
- 093	Haunter		Ghost	Levitate	None
- 094	Gengar		Ghost	Levitate	None
- 095	Onix		Rock	RockHead	WeakArmor
- 096	Drowzee		Psychic	Insomnia	InnerForce
- 097	Hypno		Psychic	Insomnia	InnerForce
- 098	Krabby		Water	HyperCutter	SheerForce
- 099	Kingler		Water	HyperCutter	SheerForce
- 100	Voltorb		Electric Soundproof	Aftermath
- 101	Electrode	Electric Soundproof	Aftermath
- 102	Exeggcute	Grass	Chlorophyll	Harvest
- 103	Exeggutor	Grass	Chlorophyll	Harvest
- 104	Cubone		Ground	RockHead	BattleArmor
- 105	Marowak		Ground	RockHead	BattleArmor
- 106	Hitmonlee	Fighting Limber		Unburden
- 107	Hitmonchan	Fighting KeenEye	InnerForce
- 108	Lickitung	Normal	OwnTempo	CloudNine
- 109	Koffing		Poison	Levitate	None
- 110	Weezing		Poison	Levitate	None
- 111	Rhyhorn		Ground	LightningRod Reckless
- 112	Rhydon		Ground	LightningRod Reckless
- 113	Chansey		Normal	NaturalCure	Healer
- 114	Tangela		Grass	Chlorophyll	Regenerator
- 115	Kangaskhan	Normal	EarlyBird	InnerForce
- 116	Horsea		Water	SwiftSwim	Damp
- 117	Seadra		Water	PoisonPoint	Damp
- 118	Goldeen		Water	SwiftSwim	LightningRod
- 119	Seaking		Water	SwiftSwim	LightningRod
- 120	Staryu		Water	Illuminate	Analytic
- 121	Starmie		Water	Illuminate	Analytic
- 122	Mr.Mime		Psychic	Soundproof	Technician
- 123	Scyther		Bug		Swarm		Steadfast
- 124	Jynx		Ice		Oblivious	DrySkin
- 125	Electabuzz	Electric Static		VitalSpirit
- 126	Magmar		Fire	FlameBody	VitalSpirit
- 127	Pinsir		Bug		HyperCutter	Moxie
- 128	Tauros		Normal	Intimidate	SheerForce
- 129	Magikarp	Water	SwiftSwim	Rattled
- 130	Gyarados	Water	Intimidate	Moxie
- 131	Lapras		Water	WaterAbsorb	Hydration
- 132	Ditto		Normal	Limber		Imposter
- 133	Eevee		Normal	RunAway		Anticipation
- 134	Vaporeon	Water	WaterAbsorb	Hydration
- 135	Jolteon		Electric VoltAbsorb	QuickFeet
- 136	Flareon		Fire	FlashFire	Guts	
- 137	Porygon		Normal	Trace		Analytic
- 138	Omanyte		Rock	SwiftSwim	WeakArmor
- 139	Omastar		Rock	SwiftSwim	WeakArmor
- 140	Kabuto		Rock	SwiftSwim	WeakArmor	
- 141	Kabutops	Rock	SwiftSwim	WeakArmor
- 142	Aerodactyl	Rock	RockHead	Unnerve
- 143	Snorlax		Normal	Immunity	Gluttony
- 144	Articuno	Ice		Pressure	SnowCloak
- 145	Zapdos		Electric Pressure	Static
- 146	Moltres		Fire	Pressure	FlameBody
- 147	Dratini		Dragon	ShedSkin	MarvelScale
- 148	Dragonair	Dragon	ShedSkin	MarvelScale
- 149	Dragonite	Dragon	InnerFocus	Multiscale
- 150	Mewtwo		Psychic	Pressure	Unnerve
- 151	Mew			Psychic	Synchronize	None
+ 001	Bulbasaur	Grass	Overgrow	
+ 002	Ivysaur		Grass	Overgrow	
+ 003	Venusaur	Grass	Overgrow	
+ 004	Charmander	Fire	Blaze		
+ 005	Charmeleon	Fire	Blaze		
+ 006	Charizard	Fire	Blaze		
+ 007	Squirtle	Water	Torrent		
+ 008	Wartortle	Water	Torrent		
+ 009	Blastoise	Water	Torrent		
+ 010	Caterpie	Bug		ShieldDust	
+ 011	Metapod		Bug		ShedSkin	
+ 012	Butterfree	Bug		CompoundEyes 
+ 013	Weedle		Bug		ShieldDust	
+ 014	Kakuna		Bug		ShedSkin	
+ 015	Beedrill	Bug		Swarm		
+ 016	Pidgey		Normal	KeenEye		
+ 017	Pidgeotto	Normal	KeenEye		
+ 018	Pidgeot		Normal	KeenEye		
+ 019	Rattata		Normal	RunAway		
+ 020	Raticate	Normal	RunAway		
+ 021	Spearow		Normal	KeenEye		
+ 022	Fearow		Normal	KeenEye		
+ 023	Ekans		Poison	Intimidate	
+ 024	Arbok		Poison	Intimidate	
+ 025	Pikachu		Electric Static		
+ 026	Raichu		Electric Static		
+ 027	Sandshrew	Ground	SandVeil	
+ 028	Sandslash	Ground	SandVeil	
+ 029	Nidoran♀	Poison	PoisonPoint	
+ 030	Nidorina	Poison	PoisonPoint	
+ 031	Nidoqueen	Poison	PoisonPoint	
+ 032	Nidoran♂	Poison	PoisonPoint	
+ 033	Nidorino	Poison	PoisonPoint	
+ 034	Nidoking	Poison	PoisonPoint	
+ 035	Clefairy	Fairy	CuteCharm	
+ 036	Clefable	Fairy	CuteCharm	
+ 037	Vulpix		Fire	FlashFire	
+ 038	Ninetales	Fire	FlashFire	
+ 039	Jigglypuff	Normal	CuteCharm	
+ 040	Wigglytuff	Normal	CuteCharm	
+ 041	Zubat		Poison	InnerForce	
+ 042	Golbat		Poison	InnerForce	
+ 043	Oddish		Grass	Chlorophyll	
+ 044	Gloom		Grass	Chlorophyll	
+ 045	Vileplume	Grass	Chlorophyll	
+ 046	Paras		Bug		EffectSpore 
+ 047	Parasect	Bug		EffectSpore	
+ 048	Venonat		Bug		CompoundEyes
+ 049	Venomoth	Bug		ShieldDust	
+ 050	Diglett		Ground	SandVeil	
+ 051	Dugtrio		Ground	SandVeil	
+ 052	Meowth		Normal	Pickup		
+ 053	Persian		Normal	Limber		
+ 054	Psyduck		Water	Damp		
+ 055	Golduck		Water	Damp		
+ 056	Mankey		Fighting VitalSpirit 
+ 057	Primeape	Fighting VitalSpirit 
+ 058	Growlithe	Fire	Intimidate	
+ 059	Arcanine	Fire	Intimidate	
+ 060	Poliwag		Water	WaterAbsorb	
+ 061	Poliwhirl	Water	WaterAbsorb	
+ 062	Poliwrath	Water	WaterAbsorb	
+ 063	Abra		Psychic	Synchronize	
+ 064	Kadabra		Psychic	Synchronize	
+ 065	Alakazam	Psychic Synchronize	
+ 066	Machop		Fighting Guts		
+ 067	Machoke		Fighting Guts		
+ 068	Machamp		Fighting Guts		
+ 069	Bellsprout	Grass	Chlorophyll	
+ 070	Weepinbell	Grass	Chlorophyll	
+ 071	Victreebel	Grass	Chlorophyll	
+ 072	Tentacool	Water	ClearBody	
+ 073	Tentacruel	Water	ClearBody	
+ 074	Geodude		Rock	RockHead	
+ 075	Graveler	Rock	RockHead	
+ 076	Golem		Rock	RockHead	
+ 077	Ponyta		Fire	RunAway		
+ 078	Rapidash	Fire	RunAway		
+ 079	Slowpoke	Water	Oblivious	
+ 080	Slowbro		Water	Oblivious	
+ 081	Magnemite	Electric MagnetPull	
+ 082	Magneton	Electric MagnetPull	
+ 083	Farfetch'd	Normal	KeenEye		
+ 084	Doduo		Normal	RunAway		
+ 085	Dodrio		Normal	RunAway		
+ 086	Seel		Water	ThickFat	
+ 087	Dewgong		Water	ThickFat	
+ 088	Grimer		Poison	Stench		
+ 089	Muk			Poison	Stench		
+ 090	Shellder	Water	ShellArmor	
+ 091	Cloyster	Water	ShellArmor	
+ 092	Gastly		Ghost	Levitate	
+ 093	Haunter		Ghost	Levitate	
+ 094	Gengar		Ghost	Levitate	
+ 095	Onix		Rock	RockHead	
+ 096	Drowzee		Psychic	Insomnia	
+ 097	Hypno		Psychic	Insomnia	
+ 098	Krabby		Water	HyperCutter	
+ 099	Kingler		Water	HyperCutter	
+ 100	Voltorb		Electric Soundproof	
+ 101	Electrode	Electric Soundproof	
+ 102	Exeggcute	Grass	Chlorophyll	
+ 103	Exeggutor	Grass	Chlorophyll	
+ 104	Cubone		Ground	RockHead	
+ 105	Marowak		Ground	RockHead	
+ 106	Hitmonlee	Fighting Limber		
+ 107	Hitmonchan	Fighting KeenEye	
+ 108	Lickitung	Normal	OwnTempo	
+ 109	Koffing		Poison	Levitate	
+ 110	Weezing		Poison	Levitate	
+ 111	Rhyhorn		Ground	LightningRod 
+ 112	Rhydon		Ground	LightningRod 
+ 113	Chansey		Normal	NaturalCure	
+ 114	Tangela		Grass	Chlorophyll	
+ 115	Kangaskhan	Normal	EarlyBird	
+ 116	Horsea		Water	SwiftSwim	
+ 117	Seadra		Water	PoisonPoint	
+ 118	Goldeen		Water	SwiftSwim	
+ 119	Seaking		Water	SwiftSwim	
+ 120	Staryu		Water	Illuminate	
+ 121	Starmie		Water	Illuminate	
+ 122	Mr.Mime		Psychic	Soundproof	
+ 123	Scyther		Bug		Swarm		
+ 124	Jynx		Ice		Oblivious	
+ 125	Electabuzz	Electric Static		
+ 126	Magmar		Fire	FlameBody	
+ 127	Pinsir		Bug		HyperCutter	
+ 128	Tauros		Normal	Intimidate	
+ 129	Magikarp	Water	SwiftSwim	
+ 130	Gyarados	Water	Intimidate	
+ 131	Lapras		Water	WaterAbsorb	
+ 132	Ditto		Normal	Limber		
+ 133	Eevee		Normal	RunAway		
+ 134	Vaporeon	Water	WaterAbsorb	
+ 135	Jolteon		Electric VoltAbsorb	
+ 136	Flareon		Fire	FlashFire		
+ 137	Porygon		Normal	Trace		
+ 138	Omanyte		Rock	SwiftSwim	
+ 139	Omastar		Rock	SwiftSwim	
+ 140	Kabuto		Rock	SwiftSwim		
+ 141	Kabutops	Rock	SwiftSwim	
+ 142	Aerodactyl	Rock	RockHead	
+ 143	Snorlax		Normal	Immunity	
+ 144	Articuno	Ice		Pressure	
+ 145	Zapdos		Electric Pressure	
+ 146	Moltres		Fire	Pressure	
+ 147	Dratini		Dragon	ShedSkin	
+ 148	Dragonair	Dragon	ShedSkin	
+ 149	Dragonite	Dragon	InnerFocus	
+ 150	Mewtwo		Psychic	Pressure	
+ 151	Mew			Psychic	Synchronize	

@@ -14,7 +14,6 @@ public class DataBaseHelper{
 	private final String P_NAME = "Name";
 	private final String P_TYPE = "Type";
 	private final String P_SPEC = "Species";
-	private final String P_ABIL = "Abilities";
 	private final String tablename = "PII";//keep table names caps
 	private final String movetable = "MII";
 	private final String M_ID = "typeID";
@@ -24,7 +23,8 @@ public class DataBaseHelper{
 	
 	 /**
 	 *  Connects to the database and checks if there is a database already in existence.
-	 *  If not it will create a database with the parameters(ID,NAME,TYPE,SPECIES,ABILITIES);
+	 *  If not it will create a database with a table with the parameters(ID,NAME,TYPE,SPECIES) 
+	 * and a second table with the parameters(ID,MOVE);
 	 **/
 	public DataBaseHelper(){
 		openConnection();
@@ -36,14 +36,21 @@ public class DataBaseHelper{
 		}
 
 	}
-	
+	/**
+	 * Checks if there is a database with the same name in existancisence. 
+	 * If there is a database with the same name it will return true.
+	 * Can throw a SQLException if there was not a connection made prior
+	 * **/
 	public boolean doesPokemonDatabaseExists() throws SQLException{
 		DatabaseMetaData md = connection.getMetaData();
 		ResultSet rs = md.getTables(null, null, tablename, null);
 		return rs.next();
 	}
 
-
+	/**
+	 * Tries to open a connection to the database. 
+	 * 
+	 * **/
 	public void openConnection(){
 		try {
 			Class.forName("org.hsqldb.jdbcDriver");
@@ -56,6 +63,10 @@ public class DataBaseHelper{
 		}	
 	}
 
+	/**
+	 * Tries to close a connection to the database. 
+	 * 
+	 * **/
 	public void closeConnection(){
 		try {
 			this.connection.close();
@@ -63,9 +74,13 @@ public class DataBaseHelper{
 			System.out.println("No Connection Found!");
 		}
 	}
-
+	
+	/**
+	 *  Tries to create two tables one with the parameters( ID INTEGER,NAME VARCHAR,TYPE VARCHAR, SPECIES VARCHAR)
+	 * and another table with parameters (ID VARCHAR,MOVE VARCHAR)
+	 * **/
 	public void createDatabase(){
-		String sql = "CREATE TABLE "+tablename+"("+P_ID+" INTEGER, "+P_NAME+" VARCHAR(24), "+P_TYPE+" VARCHAR(24), "+P_SPEC+" VARCHAR(24), "+P_ABIL+" VARCHAR(24));"
+		String sql = "CREATE TABLE "+tablename+"("+P_ID+" INTEGER, "+P_NAME+" VARCHAR(24), "+P_TYPE+" VARCHAR(24), "+P_SPEC+" VARCHAR(24));"
 				+"CREATE TABLE "+movetable+"("+M_ID+" VARCHAR(24), "+M_ATTACK +" VARCHAR(24));";
 		
 		try {
@@ -80,8 +95,11 @@ public class DataBaseHelper{
 		}
 	}
 
+	/**
+	 * Inserts a Pokemon object into the first table
+	***/
 	public void insertPokemon(Pokemon some){
-		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"', '"+some.getSpecies()+"', '"+some.getAbil()+"');";
+		String sql = "INSERT INTO "+tablename+" VALUES("+some.getID()+", '"+some.getName()+"', '"+some.getType()+"', '"+some.getSpecies()+"');";
 		try {
 			state = connection.createStatement();
 			state.executeQuery(sql);
@@ -90,6 +108,7 @@ public class DataBaseHelper{
 			e.printStackTrace();
 		}
 	}
+	// Inserts a Type and Move into the second table
 	public void insertTypeandMove(String name,String move){
 		String sql = "INSERT INTO "+movetable+" VALUES('"+name+"', '"+move+"');";
 		try{
@@ -103,7 +122,9 @@ public class DataBaseHelper{
 		
 	}
 
-
+	/**
+	 *  Drops both tables from the database
+	 * **/
 	public void removeDatabases(){
 			try {
 				if(doesPokemonDatabaseExists()){
@@ -117,7 +138,7 @@ public class DataBaseHelper{
 		
 
 	}
-	
+	//Helper function to drop the table with the pokemon infomation 
 	private void removePokemonDatabase(){
 		String sql = "DROP TABLE "+tablename;
 		
@@ -129,6 +150,7 @@ public class DataBaseHelper{
 			e.printStackTrace();
 		}		
 	}
+	//Helper function to drop the table with the move infomation 
 	private void removeMoveDatabase(){
 		String sql2 = "DROP TABLE "+movetable;
 		try {
@@ -174,7 +196,7 @@ public class DataBaseHelper{
 			// the cursor moves to the first and only result
 			// that is returned.
 			if(r.next()) {
-				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL));	
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC));	
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made!");
@@ -192,7 +214,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r = state.executeQuery(sql);
 			if(r.next()) {
-				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL));	
+				selected = new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC));	
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made!");
@@ -214,7 +236,7 @@ public class DataBaseHelper{
 			ResultSet r =state.executeQuery(sql);
 	
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC)));
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made");
@@ -236,7 +258,7 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r =state.executeQuery(sql);
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC)));
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made");
@@ -254,13 +276,28 @@ public class DataBaseHelper{
 			state = connection.createStatement();
 			ResultSet r =state.executeQuery(sql);
 			while(r.next()){
-				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC),r.getString(P_ABIL)));
+				pokemons.add(new Pokemon(r.getInt(P_ID),r.getString(P_NAME),r.getString(P_TYPE),r.getString(P_SPEC)));
 			}
 		} catch (SQLException e) {
 			System.out.println("Connection Was Not Made");
 			e.printStackTrace();
 		}
 		return pokemons;
+	}
+	public Move getMov(String typez){
+		String sql = "SELECT * FROM "+movetable+" WHERE "+M_ID+"='"+typez+"';";
+		Move move = new Move();
+		
+		try {
+			state = connection.createStatement();
+			ResultSet r = state.executeQuery(sql);
+			if (r.next()){
+				move = new Move(r.getString(M_ID), r.getString(M_ATTACK));}
+			} catch (SQLException e) {
+				System.out.println("Type Not Found!");
+				e.printStackTrace();
+			}
+			return move;
 	}
 	
 	public ArrayList<Move> getMoves(Pokemon some){
@@ -327,7 +364,4 @@ public class DataBaseHelper{
 		}
 		return movesList;
 	}
-	
-	
-
 }

@@ -71,17 +71,17 @@ public class Frame {
 		lblInvalidPokemonTry.setBounds(83, 198, 273, 44);
 		PokeFrame.getContentPane().add(lblInvalidPokemonTry);
 		
-		final JLabel FillAbilities = new JLabel("<html><html>");
-		FillAbilities.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		FillAbilities.setBounds(552, 447, 115, 70);
-		PokeFrame.getContentPane().add(FillAbilities);
+		final JLabel FillMoves = new JLabel("<html><html>");
+		FillMoves.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		FillMoves.setBounds(552, 447, 115, 70);
+		PokeFrame.getContentPane().add(FillMoves);
 		
 		final JLabel FillSpecies = new JLabel("<html><html>");
 		FillSpecies.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillSpecies.setBounds(552, 361, 170, 70);
 		PokeFrame.getContentPane().add(FillSpecies);
 		
-		JLabel lblabilities = new JLabel("<html>Abilities : <html>");
+		JLabel lblabilities = new JLabel("<html>Moves : <html>");
 		lblabilities.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblabilities.setBounds(490, 406, 115, 70);
 		PokeFrame.getContentPane().add(lblabilities);
@@ -138,7 +138,8 @@ public class Frame {
 		 		input = listen.toLowerCase();
 				
 		 		Pokemon pokeFound = dbHelper.getPokemon(input);
-
+		 		Move moveFound = dbHelper.getMov(pokeFound.getType());
+	
 				// If no pokemon by the name of 'input' is found
 				// then the pokeFound object retains it's default
 				// field values. The default field value for the
@@ -149,7 +150,7 @@ public class Frame {
 	 			else{
 	 			FillName.setText(pokeFound.getName().toUpperCase());
 	 		 	FillPokemonType.setText(pokeFound.getType());
-	 		 	FillAbilities.setText(pokeFound.getAbil());
+	 		 	FillMoves.setText(moveFound.getMove());
 	 		 	FillSpecies.setText(pokeFound.getSpecies());
 		 		lblInvalidPokemonTry.setText(null);
 	 		 	PI = pokeFound.getID();
