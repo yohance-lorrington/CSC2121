@@ -2,13 +2,13 @@
 public class Move {
 	
 	//Instantiate Class Variable
-	private  String typename;
+	private String typename;
 	private String moveName;
 
 	//Constructors
 	Move(){
 		this.typename = "null";
-		this.moveName  ="none";
+		this.moveName = "none";
 	}
 
 	Move(String name){
