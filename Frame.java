@@ -81,10 +81,11 @@ public class Frame {
 		FillSpecies.setBounds(552, 361, 170, 70);
 		PokeFrame.getContentPane().add(FillSpecies);
 		
-		JLabel lblabilities = new JLabel("<html>Moves : <html>");
-		lblabilities.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblabilities.setBounds(490, 406, 115, 70);
-		PokeFrame.getContentPane().add(lblabilities);
+		
+		JLabel lblmoves = new JLabel("<html>Moves : <html>");
+		lblmoves.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblmoves.setBounds(490, 406, 115, 70);
+		PokeFrame.getContentPane().add(lblmoves);
 		
 		JLabel lblspecies = new JLabel("<html>Species : <html>");
 		lblspecies.setFont(new Font("Tahoma", Font.BOLD, 20));
