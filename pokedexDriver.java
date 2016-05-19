@@ -72,8 +72,7 @@ public class pokedexDriver {
 							}
 							break;
 						
-					case 3: 
-							System.out.println("Please enter Pokemon ID: ");
+					case 3:	System.out.println("Please enter Pokemon ID: ");
 							try {
 								System.out.println(dbHelper.getPokemon(userInput.nextInt()));
 							} catch (java.util.InputMismatchException e) {
