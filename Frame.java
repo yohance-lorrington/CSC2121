@@ -63,7 +63,7 @@ public class Frame {
 		scrollPane.setViewportBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		scrollPane.setViewportView(new JLabel(imageIcon)); 
 	    	scrollPane.getVerticalScrollBar().setValue(0);
-		 scrollPane.getHorizontalScrollBar().setValue(0);
+		scrollPane.getHorizontalScrollBar().setValue(0);
 		scrollPane.setBounds(109, 260, 159, 195);
 		PokeFrame.getContentPane().add(scrollPane);
 		
