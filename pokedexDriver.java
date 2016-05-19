@@ -6,6 +6,8 @@ public class pokedexDriver {
 	public static void main(String[] args) {
 		
 		final DataBaseHelper dbHelper = new DataBaseHelper();
+
+		// This is our GUI frame.
 		final Frame window = new Frame(dbHelper);
 		
 		// Invokes the GUI on a different thread. This way
@@ -121,6 +123,7 @@ public class pokedexDriver {
 			}
 		}
 
+		// This sends an event for closing the window.
 		window.PokeFrame.dispatchEvent(
 				new WindowEvent(window.PokeFrame, WindowEvent.WINDOW_CLOSING)
 		);

@@ -55,7 +55,8 @@ public class Frame {
 		// Allows us to shift positions in one large picture
 		// instead of having one picture per pokemon.
 		ImageIcon imageIcon = new ImageIcon(new ImageIcon("giphy.gif").getImage().getScaledInstance(4000, 4000, Image.SCALE_DEFAULT));
-		final JScrollPane scrollPane = new JScrollPane();	
+
+		JScrollPane scrollPane = new JScrollPane();	
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setViewportBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -65,17 +66,17 @@ public class Frame {
 		scrollPane.setBounds(109, 260, 159, 195);
 		PokeFrame.getContentPane().add(scrollPane);
 		
-		final JLabel lblInvalidPokemonTry = new JLabel();
+		JLabel lblInvalidPokemonTry = new JLabel();
 		lblInvalidPokemonTry.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblInvalidPokemonTry.setBounds(83, 198, 273, 44);
 		PokeFrame.getContentPane().add(lblInvalidPokemonTry);
 		
-		final JLabel FillMoves = new JLabel("<html><html>");
+		JLabel FillMoves = new JLabel("<html><html>");
 		FillMoves.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillMoves.setBounds(552, 447, 115, 70);
 		PokeFrame.getContentPane().add(FillMoves);
 		
-		final JLabel FillSpecies = new JLabel("<html><html>");
+		JLabel FillSpecies = new JLabel("<html><html>");
 		FillSpecies.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillSpecies.setBounds(552, 361, 170, 70);
 		PokeFrame.getContentPane().add(FillSpecies);
@@ -100,7 +101,7 @@ public class Frame {
 		Name.setBounds(490, 178, 115, 70);
 		PokeFrame.getContentPane().add(Name);
 		
-		final JLabel FillName = new JLabel("<html><html>");
+		JLabel FillName = new JLabel("<html><html>");
 		FillName.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillName.setBounds(586, 178, 115, 70);
 		PokeFrame.getContentPane().add(FillName);
@@ -116,12 +117,12 @@ public class Frame {
 		SearchBox.setBounds(38, 162, 159, 20);
 		PokeFrame.getContentPane().add(SearchBox);
 		
-		final JLabel FillPokemonType = new JLabel("<html><html>");
+		JLabel FillPokemonType = new JLabel("<html><html>");
 		FillPokemonType.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillPokemonType.setBounds(552, 281, 211, 70);
 		PokeFrame.getContentPane().add(FillPokemonType);
 
-		final JTextField SearchField = new JTextField();
+		JTextField SearchField = new JTextField();
 		SearchField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		SearchField.setBounds(168, 159, 170, 29);
 
@@ -137,7 +138,7 @@ public class Frame {
 		 		input = listen.toLowerCase();
 				
 		 		Pokemon pokeFound = dbHelper.getPokemon(input);
-		 		Move moveFound = dbHelper.getMov(pokeFound.getType());
+		 		Move moveFound = dbHelper.getMove(pokeFound.getType());
 	
 				// If no pokemon by the name of 'input' is found
 				// then the pokeFound object retains it's default
