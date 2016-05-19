@@ -25,7 +25,7 @@ public class Move {
 	 * Utility Functions
 	**/
 	
-	//
+	// Setter Methods
 	public void setTypeName(String type){
 		this.typename = type;
 	}
@@ -34,7 +34,7 @@ public class Move {
 		this.moveName = move;
 	}
 
-	//
+	// Getter Methods
 	public String getTypeName(){
 		return this.typename;
 	}
