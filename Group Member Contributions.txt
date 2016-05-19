@@ -2,6 +2,7 @@
 Adrian Logan: Database and GUI Integration, commenting, debugging, and Final Packaging
 
 Tabahani Hayles:
+Database development/comments
 
 Jetlir Lajqi:
 
