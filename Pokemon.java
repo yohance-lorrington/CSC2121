@@ -1,18 +1,13 @@
-
+//Class created to streamline the DB data Acquisition process by wrapping Pokemon properties.
 public class Pokemon {
 	
+	//Member Variables
 	private Integer ID;
 	private String Name;
 	private String Type;
 	private String Species;
-	/**
-	 * 
-	 * @param idz
-	 * @param namez
-	 * @param typez
-	 * @param abilz
-	 * @param speciez
-	 */
+
+	//Constructors
 	public Pokemon(Integer idz,String namez,String typez, String speciez){
 		this.ID = idz;
 		this.Name = namez;
@@ -21,6 +16,7 @@ public class Pokemon {
 
 	}
 	
+	//error state default Pokemon constructor
 	public Pokemon(){
 		Name = "ERROR";
 		Type = "NOT FATAL";
@@ -28,15 +24,13 @@ public class Pokemon {
 		Species = "STILL NOT FATAL";
 	}
 	/**
-	 * 
-	 * @return the name of the pokemon or null if the 
+	 * @return the name of the pokemon
 	 */
 	public String getName(){
 		return this.Name;
 	}
 	/**
-	 * 
-	 * @return the type of the pokemon or null if the 
+	 * @return the type of the pokemon
 	 */
 	public String getType(){
 		return this.Type;
@@ -51,7 +45,6 @@ public class Pokemon {
 		
 	}
 	/**
-	 * 
 	 * @return the pokemon's species
 	 */
 	public String getSpecies(){
@@ -59,36 +52,31 @@ public class Pokemon {
 	}
 
 	/**
-	 * 
-	 * @param someName
+	 * @return the pokemon's name
 	 */
 	public void setName(String someName){
 		this.Name = someName;
 	}
 	/**
-	 * 
-	 * @param someType
+	 * @return the pokemon's Type
 	 */
 	public void setType(String someType){
 		this.Type = someType;
 	}
 	/**
-	 * 
-	 * @param someId
+	 *@return the pokemon's ID
 	 */
 	public void setId(Integer someId){
 		this.ID = someId;
 	}
 	/**
-	 * 
-	 * @param someSpecies
+	 *@return the pokemon's Species
 	 */
 	public void getSpecies(String someSpecies){
 		this.Species = someSpecies;
 	}
 	/**
-	 * 
-	 * @param someAbil
+	 * @return the pokemon's Abil
 	 */
 
 	public String toString(){

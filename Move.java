@@ -1,4 +1,4 @@
-//Class created to streamline the DB data Acquisition process.
+//Class created to streamline the DB data Acquisition process by wrapping Type properties
 public class Move {
 	
 	//Instantiate Class Variable

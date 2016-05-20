@@ -48,7 +48,7 @@ public class Frame {
 		
 		PokeFrame = new JFrame();
 		PokeFrame.setResizable(false);
-		PokeFrame.setTitle("Jetlir'sGUI");
+		PokeFrame.setTitle("Pokedex");
 		PokeFrame.setBounds(100, 100, 780, 620);
 		PokeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		PokeFrame.getContentPane().setLayout(null);
@@ -67,8 +67,8 @@ public class Frame {
 		/* Create Image Icon, attach giphy.gif to it, 
 		Scale 4000 by 4000 for appropriate sized pokemon 
 		attached to fill a MatteBordered box, Hide ScrollBars*/
-		ImageIcon imageIcon = new ImageIcon(new ImageIcon("giphy.gif").getImage().getScaledInstance(4000, 4000, Image.SCALE_DEFAULT));
-		JScrollPane scrollPane = new JScrollPane();	
+		ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/giphy.gif").getImage().getScaledInstance(4000, 4000, Image.SCALE_DEFAULT));
+		final JScrollPane scrollPane = new JScrollPane();	
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setViewportBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -125,25 +125,25 @@ public class Frame {
 		
 		//4 of the following Jlabels always change after a new pokemon is entered
 		//JLabel This will change its Move string of Pokemon depending on Pokemon
-		JLabel FillMoves = new JLabel("<html><html>");
+		final JLabel FillMoves = new JLabel("<html><html>");
 		FillMoves.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillMoves.setBounds(552, 447, 115, 70);
 		PokeFrame.getContentPane().add(FillMoves);
 		
 		//JLabel This will change its Species string of Pokemon depending Pokemon 
-		JLabel FillSpecies = new JLabel("<html><html>");
+		final JLabel FillSpecies = new JLabel("<html><html>");
 		FillSpecies.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillSpecies.setBounds(552, 361, 170, 70);
 		PokeFrame.getContentPane().add(FillSpecies);
 	
 		//JLabel This will change its Name string of Pokemon depending Pokemon 
-		JLabel FillName = new JLabel("<html><html>");
+		final JLabel FillName = new JLabel("<html><html>");
 		FillName.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillName.setBounds(586, 178, 115, 70);
 		PokeFrame.getContentPane().add(FillName);
 		
 		//JLabel This will change its Type string of Pokemon depending Pokemon 
-		JLabel FillPokemonType = new JLabel("<html><html>");
+		final JLabel FillPokemonType = new JLabel("<html><html>");
 		FillPokemonType.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		FillPokemonType.setBounds(552, 281, 211, 70);
 		PokeFrame.getContentPane().add(FillPokemonType);
@@ -153,7 +153,7 @@ public class Frame {
 					/////////////////////////////
 		
 		//JLabel This particular one  is hidden unless a wrong userinput is made
-		JLabel lblInvalidPokemonTry = new JLabel();
+		final JLabel lblInvalidPokemonTry = new JLabel();
 		lblInvalidPokemonTry.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblInvalidPokemonTry.setBounds(83, 198, 273, 44);
 		PokeFrame.getContentPane().add(lblInvalidPokemonTry);
@@ -163,7 +163,7 @@ public class Frame {
 					/////////////////////////////
 		
 		//JSearchField, used for user to type pokemon name into it
-		JTextField SearchField = new JTextField();
+		final JTextField SearchField = new JTextField();
 		SearchField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		SearchField.setBounds(168, 159, 170, 29);
 
@@ -238,7 +238,7 @@ public class Frame {
 		 PokeFrame.getContentPane().add(SearchField);
 		 SearchField.setColumns(10);
 		 JLabel BackGround = new JLabel("");
-		 BackGround.setIcon(new ImageIcon("PokePic.png"));
+		 BackGround.setIcon(new ImageIcon("src/PokePic.png"));
 		 BackGround.setBounds(0, 0, 778, 584);
 		 PokeFrame.getContentPane().add(BackGround); 
 	}

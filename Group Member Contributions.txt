@@ -1,10 +1,11 @@
-﻿Group Member Contributions:
+Group Member Contributions:
 Adrian Logan: Database and GUI Integration, commenting, debugging, and Final Packaging
 
 Tabahani Hayles:
-Database development/comments
+Database development, created fillDB class as well as DBhelper class, comments
 
 Jetlir Lajqi:
+GUI layout and creation, search validation, comments
 
 Gary Lin:
 Method additions, Altered GUI, Expand table, Line comments

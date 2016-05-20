@@ -14,7 +14,7 @@ public class DataBaseHelper{
 	private final String P_NAME = "Name";
 	private final String P_TYPE = "Type";
 	private final String P_SPEC = "Species";
-	private final String tablename = "PII";//keep table names caps
+	private final String tablename = "PII"; //keep table names caps
 	private final String movetable = "MII";
 	private final String M_ID = "typeID";
 	private final String M_ATTACK = "moveAttack";

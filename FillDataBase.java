@@ -1,6 +1,4 @@
-import java.sql.SQLException;
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,17 +12,10 @@ public class FillDataBase {
 	public static final int FILLPOKEMONDATABASE =256;
 	public static final int FILLMOVEDATABASE = 128;
 	
-	
-	//////////////////////////////////////////////////
-	// Utility Functions : {{{
-	//////////////////////////////////////////////////
+	// Utility Functions
 	
 	/**
 	 * Fill one of two databases: move database, or pokemon database.
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws EOFException
-	 * @throws IOException
 	 */
 	public FillDataBase(int whichDatabase){
 		db = new DataBaseHelper();
@@ -55,12 +46,10 @@ public class FillDataBase {
 
 	/**
 	 * Opens text files which contain data for databases.
-	 * @param whatever
-	 * @throws IOException
 	 */
-	private void openFile(String whatever){
+	private void openFile(String txtName){
 			try {
-				input = new BufferedReader(new FileReader( new File(whatever)));
+				input = new BufferedReader(new FileReader( new File(txtName)));
 			} catch (FileNotFoundException e) {
 				System.out.println("File Cannot Be Found!");
 			}			
@@ -69,7 +58,6 @@ public class FillDataBase {
 
 	/**
 	 * Closes the currently opened text file.
-	 * @throws IOException
 	 */
 	private void closeFile(){
 			if(input != null){
@@ -84,8 +72,6 @@ public class FillDataBase {
 	/**
 	 * Parses input file to place records in our databases.
 	 * @throws NumberFormatException 
-	 * @throws SQLException
-	 * @throws EOFException
 	 * @throws IOException
 	 */
 	private void readRecords(int caze) throws NumberFormatException, IOException{
@@ -128,9 +114,3 @@ public class FillDataBase {
 		}
 	}
 }
-
-	//////////////////////////////////////////////////
-	// }}}
-	//////////////////////////////////////////////////
-	
-	
