@@ -7,6 +7,7 @@ Database development/comments
 Jetlir Lajqi:
 
 Gary Lin:
+Method additions, Altered GUI, Expand table, Line comments
 
 Adam Ibrahim:
 Synchronized the closing of the GUI and the main threads.
